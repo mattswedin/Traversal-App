@@ -33,3 +33,255 @@ Migrating to CreateUsers (20220201214020)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-02-07 12:38:16 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-02-07 12:44:26 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-07 12:52:24 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'turbolinks' with type 'application/javascript'
+Checked in these paths: 
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/config
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/images
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/javascripts
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/stylesheets
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___1224531560622285507_70330930303140'
+  app/controllers/static_pages_controller.rb:3:in `root'
+
+Started POST "/__better_errors/b684af8c0afa9b9d/variables" for ::1 at 2022-02-07 12:52:24 -0500
+Started GET "/" for ::1 at 2022-02-07 12:54:36 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'turbolinks' with type 'application/javascript'
+Checked in these paths: 
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/config
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/images
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/javascripts
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/stylesheets
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___1224531560622285507_70330922493300'
+  app/controllers/static_pages_controller.rb:3:in `root'
+
+Started POST "/__better_errors/32a049efa2905713/variables" for ::1 at 2022-02-07 12:54:36 -0500
+Started GET "/" for ::1 at 2022-02-07 12:55:28 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'turbolinks' with type 'application/javascript'
+Checked in these paths: 
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/config
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/images
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/javascripts
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/stylesheets
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___1224531560622285507_70330931042640'
+  app/controllers/static_pages_controller.rb:3:in `root'
+
+Started POST "/__better_errors/1ca529def894405f/variables" for ::1 at 2022-02-07 12:55:28 -0500
+Started GET "/" for ::1 at 2022-02-07 12:55:54 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'turbolinks' with type 'application/javascript'
+Checked in these paths: 
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/config
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/images
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/javascripts
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/stylesheets
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__683629114689175020_70303515251420'
+  app/controllers/static_pages_controller.rb:3:in `root'
+
+Started POST "/__better_errors/3bceb2d5c1b3e2de/variables" for ::1 at 2022-02-07 12:55:54 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (8606.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "haunted_woods_traversal_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (80.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "haunted_woods_traversal_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (45.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "haunted_woods_traversal_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (257.1ms)[0m  [1m[35mCREATE DATABASE "haunted_woods_traversal_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (121.1ms)[0m  [1m[35mCREATE DATABASE "haunted_woods_traversal_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (2.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "level" integer DEFAULT 1 NOT NULL, "attack" integer DEFAULT 10 NOT NULL, "defense" integer DEFAULT 10 NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220201214020)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-02-07 17:59:12.046949"], ["updated_at", "2022-02-07 17:59:12.046949"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (24.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "level" integer DEFAULT 1 NOT NULL, "attack" integer DEFAULT 10 NOT NULL, "defense" integer DEFAULT 10 NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220201214020)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-02-07 17:59:12.185290"], ["updated_at", "2022-02-07 17:59:12.185290"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (2.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-02-07 17:59:12.193958"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-02-07 12:59:51 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'turbolinks' with type 'application/javascript'
+Checked in these paths: 
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/config
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/images
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/javascripts
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/assets/stylesheets
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___1502427792372565312_70266888389160'
+  app/controllers/static_pages_controller.rb:3:in `root'
+
+Started POST "/__better_errors/9261dcc9b572a579/variables" for ::1 at 2022-02-07 12:59:52 -0500
+Started GET "/" for ::1 at 2022-02-07 13:01:44 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 775ms (Views: 775.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-02-07 13:32:45 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 99ms (Views: 99.1ms | ActiveRecord: 0.0ms)
+
+
