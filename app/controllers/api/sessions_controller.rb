@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
 
     def create
         @user = User.find_by_credentials(
@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
 
     def destroy
         @user = current_user
-
         if @user
             logout!
             render "/api/users/show"
