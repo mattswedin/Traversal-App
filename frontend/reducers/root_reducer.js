@@ -6,9 +6,7 @@ import uiReducer from "./ui_reducer";
 
 const rootReducer = (combineReducers)({
     session: sessionReducer,
-    entities: entitiesReducer,
-    errors: errorsReducer,
-    ui: uiReducer
+    errors: errorsReducer
 })
 
 export default rootReducer;

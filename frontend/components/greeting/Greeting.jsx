@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 const Greeting = () => {
     return(
 
-        <div>HELLOOOOO</div>
+        <div>
+            <h1>HEY GUYS</h1>
+        </div>
 
     )
 }
 
-export default Greeting
+export default Greeting;
