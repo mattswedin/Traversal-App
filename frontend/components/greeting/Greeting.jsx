@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Greeting = () => {
+
+    const [state, setState] = useState({
+        username: '',
+        password: ''
+    })
+
+
+    const update = field => {
+       return event => {
+           setState(prevProps => ({
+               ...prevProps, [field]: event.target.value
+           }))
+       }
+    }
+
     return(
 
         <div>
-            <h1>HEY GUYS</h1>
+            <form>
+                <input type="text" placeholder='username' onChange={update('username')} />
+                <input type="password" placeholder='password' onChange={update('password')} />
+            </form>
         </div>
 
     )
