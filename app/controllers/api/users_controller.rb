@@ -1,15 +1,21 @@
 class Api::UsersController < ApplicationController
 
-    before_action :require_logged_in, except [:create]
+    skip_before_action :verify_authenticity_token
 
     def create
         @user = User.new(user_params)
+        
         if @user.save
            login!(@user)
            render :show 
         else
            render json: @user.errors.full_messages, status: 422
         end
+    end
+
+    def index
+        @users = User.all
+        render :index
     end
 
     def show
@@ -20,7 +26,7 @@ class Api::UsersController < ApplicationController
     def update
         @user = User.find_by(id: params[:id])
 
-        if @user.update(user_update_params)
+        if @user.update(user_params)
             render :show
         else
             render json: @user.errors.full_messages, status: 422
@@ -29,11 +35,7 @@ class Api::UsersController < ApplicationController
 
     private
 
-    def user_update_params
-        params.require(:user).permit(:level, :attack, :defense)
-    end
-
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:username, :password, :level, :attack, :defense)
     end
 end

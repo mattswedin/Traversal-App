@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Greeting = () => {
+const Greeting = ({ signup }) => {
 
     const [state, setState] = useState({
         username: '',
@@ -16,12 +16,17 @@ const Greeting = () => {
        }
     }
 
+    const handleSubmit = () => {
+        signup(state)
+    }
+
     return(
 
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input type="text" placeholder='username' onChange={update('username')} />
                 <input type="password" placeholder='password' onChange={update('password')} />
+                <button>Submit</button>
             </form>
         </div>
 

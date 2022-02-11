@@ -1,5 +1,14 @@
 import axios from 'axios';
 
+
+export const setAuthToken = token => {
+  if (token) {
+    axios.defaults.headers.common['Authorization'] = token;
+  } else {
+    delete axios.defaults.headers.common['Authorization'];
+  }
+};
+
 //session
 
 export const login = user => {
@@ -21,5 +30,5 @@ export const updateUser = user => {
 }
 
 export const showUser = user => {
-    return  axios.get(`api/users/${user.id}`)
+    return axios.get(`api/users/${user.id}`)
 }
