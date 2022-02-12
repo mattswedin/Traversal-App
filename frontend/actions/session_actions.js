@@ -1,6 +1,4 @@
 import * as SessionApiUtil from '../util/session_api_util'
-
-
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
@@ -33,6 +31,7 @@ export const receiveUser = user => ({
 export const signup = user => dispatch => (
     SessionApiUtil.signup(user)
     .then((user) => {
+        // dispatch(response => console.log(response))
         dispatch(receiveCurrentUser(user));
         dispatch(clearErrors());
     }) 
@@ -55,6 +54,8 @@ export const login = user => dispatch => (
 export const logout = () => dispatch => (
     SessionApiUtil.logout()
     .then(() => {
+         localStorage.removeItem('jwtToken');
+         SessionApiUtil.setAuthToken(false)
         dispatch(logoutCurrentUser())
     })
 )

@@ -4,6 +4,11 @@ import {
 } from "../actions/session_actions.js"
 
 const sessionReducer = (oldState = {}, action) => {
+
+    const initialState = {
+        isAuthenticated: false,
+        user: {}
+    }
     
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
