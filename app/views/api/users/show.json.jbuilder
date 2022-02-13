@@ -1,5 +1,2 @@
-json.set! @user.id do
-    json.extract! @user, :username, :level, :attack, :defense
-end
-
+json.extract! @user, :username, :level, :attack, :defense
 json.partial! "api/users/user", user: @user

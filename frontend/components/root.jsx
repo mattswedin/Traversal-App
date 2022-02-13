@@ -10,7 +10,6 @@ const Root = ({ store }) => (
             <App />
         </HashRouter>
     </Provider>
-   
     
 );
 

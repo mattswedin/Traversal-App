@@ -28,17 +28,16 @@ export const receiveUser = user => ({
     user
 })
 
-export const signup = user => dispatch => (
-    SessionApiUtil.signup(user)
+export const signup = user => dispatch => {
+    return SessionApiUtil.signup(user)
     .then((user) => {
-        // dispatch(response => console.log(response))
         dispatch(receiveCurrentUser(user));
         dispatch(clearErrors());
     }) 
     .catch(err => {
         dispatch(receiveErrors(err.response.data));
     })
-);
+};
 
 export const login = user => dispatch => (
     SessionApiUtil.login(user)
@@ -54,8 +53,6 @@ export const login = user => dispatch => (
 export const logout = () => dispatch => (
     SessionApiUtil.logout()
     .then(() => {
-         localStorage.removeItem('jwtToken');
-         SessionApiUtil.setAuthToken(false)
         dispatch(logoutCurrentUser())
     })
 )

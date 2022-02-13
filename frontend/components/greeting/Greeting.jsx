@@ -16,16 +16,22 @@ const Greeting = ({ signup }) => {
        }
     }
 
-    const handleSubmit = () => {
-        signup(state)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let user = {
+            username: state.username,
+            password: state.password,
+        }
+
+        signup(user)
     }
 
     return(
 
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder='username' onChange={update('username')} />
-                <input type="password" placeholder='password' onChange={update('password')} />
+                <input type="text" placeholder='username' value={state.username} onChange={update('username')} />
+                <input type="password" placeholder='password' value={state.password} onChange={update('password')} />
                 <button>Submit</button>
             </form>
         </div>
