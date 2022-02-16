@@ -3,23 +3,19 @@ import {
     LOGOUT_CURRENT_USER
 } from "../actions/session_actions.js"
 
-const initialState = {
-    isAuthenticated: false,
-    user: {}
-}
+// const initialState = {
+//     isAuthenticated: false,
+//     user: {}
+// }
 
-const sessionReducer = (state = initialState, action) => {
-
+const sessionReducer = (state = {}, action) => {
+    Object.freeze(state)
     switch (action.type) {
         
         case RECEIVE_CURRENT_USER:
-            debugger
             return { id: action.currentUser.data };
         case LOGOUT_CURRENT_USER:
-            return {
-                isAuthenticated: false,
-                user: undefined
-             };
+            return {}
         default:
             return state;
     }

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { login } from '../../util/session_api_util';
 
-const Greeting = ({ signup, errors }) => {
+const Greeting = ({ signup, errors, login }) => {
 
     const [state, setState] = useState({
         username: '',
@@ -17,8 +16,8 @@ const Greeting = ({ signup, errors }) => {
        }
     }
 
-    const handleSubmit = ( kind ) => {
-        
+    const handleSubmit = ( e, kind ) => {
+        e.preventDefault()
         let user = {
             username: state.username,
             password: state.password,
@@ -38,8 +37,8 @@ const Greeting = ({ signup, errors }) => {
             <form>
                 <input type="text" placeholder='username' value={state.username} onChange={update('username')} />
                 <input type="password" placeholder='password' value={state.password} onChange={update('password')} />
-                <button onClick={() => handleSubmit('signup')}>Sign Up!</button>
-                <button onClick={() => handleSubmit('login')}>Login!</button>
+                <button onClick={(e) => handleSubmit(e, 'signup')}>Sign Up!</button>
+                <button onClick={(e) => handleSubmit(e, 'login')}>Login!</button>
             </form>
             <ul>
                 {

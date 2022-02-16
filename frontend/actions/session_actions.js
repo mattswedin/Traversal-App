@@ -41,31 +41,32 @@ export const signup = user => dispatch => {
     })
 };
 
+// export const login = user => dispatch => {
+//     return SessionApiUtil.login(user).then(res => {
+//         console.log(res)
+//         const { token } = res.data;
+//         localStorage.setItem('jwtToken', token);
+//         SessionApiUtil.setAuthToken(token);
+//         const decoded = jwt_decode(token);
+//         dispatch(receiveCurrentUser(decoded));
+//         dispatch(clearErrors());
+//     })
+//         .catch(err => {
+//             dispatch(receiveErrors(err.response.data));
+//         })
+//     }
+
+
 export const login = user => dispatch => (
-    SessionApiUtil.login(user).then(res => {
-        const { token } = res.data;
-        localStorage.setItem('jwtToken', token);
-        SessionApiUtil.setAuthToken(token);
-        const decoded = jwt_decode(token);
-        dispatch(receiveCurrentUser(decoded));
-        dispatch(clearErrors());
+    SessionApiUtil.login(user)
+    .then((user) => {
+        dispatch(receiveCurrentUser(user))
+        dispatch(clearErrors())
     })
-        .catch(err => {
-            dispatch(receiveErrors(err.response.data));
-        })
+    .catch(err => {
+        dispatch(receiveErrors(err.response.data))
+    })
 )
-
-
-// export const login = user => dispatch => (
-//     SessionApiUtil.login(user)
-//     .then((user) => {
-//         dispatch(receiveCurrentUser(user))
-//         dispatch(clearErrors())
-//     })
-//     .catch(err => {
-//         dispatch(receiveErrors(err.response.data))
-//     })
-// )
 
 // export const logout = () => dispatch => (
 //     localStorage.removeItem('jwtToken');
@@ -77,8 +78,8 @@ export const login = user => dispatch => (
 // )
 
 export const logout = () => dispatch => {
-    localStorage.removeItem('jwtToken');
-    SessionApiUtil.setAuthToken(false);
+    // localStorage.removeItem('jwtToken');
+    // SessionApiUtil.setAuthToken(false);
     dispatch(logoutCurrentUser())
 };
 

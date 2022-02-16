@@ -1,7 +1,8 @@
 class Api::SessionsController < ApplicationController
 
+    # skip_before_action :verify_authenticity_token
+
     def create
-        byebug
         @user = User.find_by_credentials(
             params[:username],
             params[:password]
