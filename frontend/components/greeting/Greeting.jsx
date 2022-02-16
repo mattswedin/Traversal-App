@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { login } from '../../util/session_api_util';
 
-const Greeting = ({ signup }) => {
+const Greeting = ({ signup, errors }) => {
 
     const [state, setState] = useState({
         username: '',
@@ -16,24 +17,40 @@ const Greeting = ({ signup }) => {
        }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = ( kind ) => {
+        
         let user = {
             username: state.username,
             password: state.password,
         }
 
-        signup(user)
+        if( kind === 'signup' ){
+            signup(user)
+        } else {
+            login(user)
+        }
+        
     }
 
     return(
 
         <div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input type="text" placeholder='username' value={state.username} onChange={update('username')} />
                 <input type="password" placeholder='password' value={state.password} onChange={update('password')} />
-                <button>Submit</button>
+                <button onClick={() => handleSubmit('signup')}>Sign Up!</button>
+                <button onClick={() => handleSubmit('login')}>Login!</button>
             </form>
+            <ul>
+                {
+                    errors.map((error, i) => (
+                        <li key={`error-${i}`}>
+                            {error}
+                        </li>
+                    ))    
+                }
+            </ul>
+            
         </div>
 
     )
