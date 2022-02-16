@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-const Greeting = ({ signup, errors, login }) => {
+
+const Greeting = ({ signup, errors, login, currentUser }) => {
 
     const [state, setState] = useState({
         username: '',
         password: ''
     })
-
 
     const update = field => {
        return event => {
@@ -20,7 +20,7 @@ const Greeting = ({ signup, errors, login }) => {
         e.preventDefault()
         let user = {
             username: state.username,
-            password: state.password,
+            password: state.password
         }
 
         if( kind === 'signup' ){
@@ -31,7 +31,7 @@ const Greeting = ({ signup, errors, login }) => {
         
     }
 
-    return(
+    return !currentUser ? (
 
         <div>
             <form>
@@ -52,6 +52,8 @@ const Greeting = ({ signup, errors, login }) => {
             
         </div>
 
+    ) : (
+        <h1>WELCOME {currentUser.username}</h1>
     )
 }
 
