@@ -30,8 +30,8 @@ export const receiveUser = user => ({
     user
 })
 
-export const signup = user => dispatch => {
-    return SessionApiUtil.signup(user)
+export const signup = (user, token) => dispatch => {
+    return SessionApiUtil.signup(user, token)
     .then((user) => {
         dispatch(receiveCurrentUser(user));
         dispatch(clearErrors());

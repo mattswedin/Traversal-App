@@ -13,8 +13,8 @@ export const logout = () => {
 
 //user
 
-export const signup = (user) => {
-    return axios.post('/api/users', { user })
+export const signup = (user, token) => {
+    return axios.post('/api/users', { user }, {headers: { "X-CSRF-Token": token }})
 }
 
 export const updateUser = user => {

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 
 const Greeting = ({ signup, errors, login, currentUser }) => {
 
+    const token = document.querySelector('meta[name="csrf-token"]').content;
+
     const [state, setState] = useState({
         username: '',
         password: ''
@@ -17,6 +19,7 @@ const Greeting = ({ signup, errors, login, currentUser }) => {
     }
 
     const handleSubmit = ( e, kind ) => {
+
         e.preventDefault()
         let user = {
             username: state.username,
@@ -24,7 +27,7 @@ const Greeting = ({ signup, errors, login, currentUser }) => {
         }
 
         if( kind === 'signup' ){
-            signup(user)
+            signup(user, token)
         } else {
             login(user)
         }

@@ -2,13 +2,16 @@ import { connect } from "react-redux"
 import Greeting from './Greeting'
 import { login, logout, signup } from "../../actions/session_actions"
 
-const mapStateToProps = (state) => ({
-    errors: state.errors.session,
-    currentUser: state.session.id
-})
+const mapStateToProps = (state) => {
+    debugger
+    return {
+        errors: state.errors.session,
+        currentUser: state.session.id
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
-    signup: user => dispatch(signup(user)),
+    signup: (user, token) => dispatch(signup(user, token)),
     login: user => dispatch(login(user)),
     logout: () => dispatch(logout())
 })
