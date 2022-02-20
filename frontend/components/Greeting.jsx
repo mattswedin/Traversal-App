@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signup, login, logout } from '../actions/session_actions'
 
-
-const Greeting = ({ signup, errors, login, currentUser }) => {
+const Greeting = () => {
 
     const token = document.querySelector('meta[name="csrf-token"]').content;
+    const dispatch = useDispatch()
+    const currentUser = useSelector(state => state.session.id)
+    const errors = useSelector( state => state.errors.session )
 
     const [state, setState] = useState({
         username: '',
@@ -27,9 +31,9 @@ const Greeting = ({ signup, errors, login, currentUser }) => {
         }
 
         if( kind === 'signup' ){
-            signup(user, token)
+            dispatch(signup(user, token))
         } else {
-            login(user)
+            dispatch(login(user))
         }
         
     }
@@ -56,7 +60,10 @@ const Greeting = ({ signup, errors, login, currentUser }) => {
         </div>
 
     ) : (
-        <h1>WELCOME {currentUser.username}</h1>
+        <div>
+            <h1>WELCOME {currentUser.username}</h1>
+            <button onClick={() => dispatch(logout())}>Logout</button>
+        </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from "react-router";
-import GreetingContainer from "./greeting/GreetingContainer";
+import Greeting from "./Greeting";
 
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
 
         <div>
             <Routes>
-                <Route exact path="/" element={<GreetingContainer />} />
+                <Route exact path="/" element={<Greeting />} />
             </Routes>
         </div>
     )

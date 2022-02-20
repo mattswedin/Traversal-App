@@ -1,5 +1,4 @@
 import * as SessionApiUtil from '../util/session_api_util'
-import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -41,21 +40,6 @@ export const signup = (user, token) => dispatch => {
     })
 };
 
-// export const login = user => dispatch => {
-//     return SessionApiUtil.login(user).then(res => {
-//         console.log(res)
-//         const { token } = res.data;
-//         localStorage.setItem('jwtToken', token);
-//         SessionApiUtil.setAuthToken(token);
-//         const decoded = jwt_decode(token);
-//         dispatch(receiveCurrentUser(decoded));
-//         dispatch(clearErrors());
-//     })
-//         .catch(err => {
-//             dispatch(receiveErrors(err.response.data));
-//         })
-//     }
-
 
 export const login = user => dispatch => (
     SessionApiUtil.login(user)
@@ -68,18 +52,7 @@ export const login = user => dispatch => (
     })
 )
 
-// export const logout = () => dispatch => (
-//     localStorage.removeItem('jwtToken');
-//     APIUtil.setAuthToken(false);
-//     SessionApiUtil.logout()
-//     .then(() => {
-//         dispatch(logoutCurrentUser())
-//     })
-// )
-
 export const logout = () => dispatch => {
-    // localStorage.removeItem('jwtToken');
-    // SessionApiUtil.setAuthToken(false);
     dispatch(logoutCurrentUser())
 };
 

@@ -3,10 +3,6 @@ import {
     LOGOUT_CURRENT_USER
 } from "../actions/session_actions.js"
 
-// const initialState = {
-//     isAuthenticated: false,
-//     user: {}
-// }
 
 const sessionReducer = (state = {}, action) => {
     Object.freeze(state)
