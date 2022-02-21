@@ -53,7 +53,13 @@ export const login = user => dispatch => (
 )
 
 export const logout = () => dispatch => {
-    dispatch(logoutCurrentUser())
+    SessionApiUtil.logout()
+    .then(() => {
+        dispatch(logoutCurrentUser())
+    })
+    .catch(err => {
+        dispatch(receiveErrors(err.response.data))
+    })
 };
 
 export const showUser = user => dispatch => (
