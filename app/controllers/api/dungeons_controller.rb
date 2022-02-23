@@ -1,11 +1,7 @@
 class DungeonsController < ApplicationController
     def create
-        @dungeon = Dungeon.new()
-        @dungeon.room_amount = dungeon_size(current_user.level)
+        @dungeon = Dungeon.new(dungeon_params)
         @dungeon.player_id = current_user.id
-        @dungeon.enemies = [];
-        @dungeon.treasure = [];
-        @dungeon.boss = [];
         if @dungeon.save!
         end
     end
@@ -35,17 +31,8 @@ class DungeonsController < ApplicationController
         end
     end
 
-    def patch_dungeon_params
-        params.require(:dungeon).permit(:current_room, :visited_rooms, :dungeon, :enemies, :treasure)
+    def dungeon_params
+        params.require(:dungeon).permit(:room_amount, :current_room, :visited_rooms, :dungeon, :enemies, :treasure, :boss)
     end
 
-    #methods
-
-    def dungeon_size(level)
-        if level <= 19
-            return 3
-        else
-            return (level * .2).floor
-        end
-    end
 end
