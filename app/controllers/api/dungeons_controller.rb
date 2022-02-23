@@ -28,8 +28,10 @@ class DungeonsController < ApplicationController
 
     def destroy
         @dungeon = Dungeon.find_by(id: params[:id])
-        if @dungeon
-            delete @dungeon
+        if @dungeon.destroy
+            render :show
+        else
+            render json: @dungeon.errors.full_messages, status: 422
         end
     end
 
