@@ -10,3 +10,5 @@ npm-debug.log
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+config/master.key
