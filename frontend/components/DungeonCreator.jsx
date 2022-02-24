@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { createDungeon } from '../actions/dungeon_actions'
 
 class Room {
     constructor(enemies, treasure, leet) {
@@ -13,30 +14,35 @@ class Room {
 
 const DungeonCreator = () => {
     const currentUser = useSelector(state => state.session.id)
+    const dispatch = useDispatch()
 
-    const [state, SetState] = useState({
-        room_amount: '',
-        dungeon: ''
-    })
+    // const [state, setState] = useState({
+    //     room_amount: '',
+    //     dungeon: ''
+    // })
 
-    const updateDungeon = (key, value) => {
-            SetState(prevProps => ({
-                ...prevProps, [key]: value
-            }))
-    }
     
 
-    const createEntireDungeon = () => {   
-        const room_amount = dungeonRoomAmount(currentUser.level)
-        const dungeon = dungeonBinaryTree(room_amount)
+    const createEntireDungeon = (e) => {  
 
-        updateDungeon('room_amount', room_amount)
-        updateDungeon('dungeon', dungeon)
+        e.preventDefault()
+
+        const roomAmount = dungeonRoomAmount(currentUser.level)
+        const dungeonTree = dungeonBinaryTree(roomAmount)
+
+        // setState({ ['room_amount']: roomAmount, ['dungeon']: dungeonTree  })
+
+        const dungeon = {
+            room_amount: roomAmount,
+            dungeon: dungeonTree
+        }
+        
+        dispatch(createDungeon(dungeon))
     }
 
     const dungeonBinaryTree = (roomAmount) => {
         const tree = {}
-        const i = 0
+        let i = 0
 
         while (i < roomAmount){
             tree[i] = roomCreator(currentUser.level)
@@ -47,6 +53,7 @@ const DungeonCreator = () => {
     }
 
     const roomCreator = (level) => {
+
         const enemyVaultEasy = ['enemyA', 'enemyB', 'enemyC', 'enemyD']
         const treasureVaultEasy = ['treasureA', 'treasureB', 'treasureC', 'treasureD']
         const leetVaultEasy = ['two_sum', 'is_prime?', 'fizbiz', "fibonocci"]
@@ -55,9 +62,9 @@ const DungeonCreator = () => {
         const leet = [];
 
         if (level < 30){
-            const enemyAmount = Math.floor(Math.random())
-            const treasureAmount = Math.floor(Math.random())
-            const leetAmount = Math.floor(Math.random())
+            const enemyAmount = Math.floor(Math.random() * 2)
+            const treasureAmount = Math.floor(Math.random() * 2)
+            const leetAmount = Math.floor(Math.random() * 2)
 
             //Random Enemies
 
@@ -80,9 +87,11 @@ const DungeonCreator = () => {
                 leet.push(leetVaultEasy[pos])
             }
 
+            return new Room(enemies, treasure, leet)
+
         }
 
-        return new Room(enemies, treasure, leet)
+        
     }
 
     const dungeonRoomAmount = (level) => {

@@ -1,17 +1,17 @@
 import axios from 'axios'
 
 export const createDungeon = dungeon => (
-    axios.post('/api/dungeon', { dungeon })
+    axios.post('/api/dungeons', { dungeon })
 )
 
 export const updateDungeon = dungeon => (
-    axios.patch(`/api/dungeon/${dungeon.id}`, { dungeon })
+    axios.patch(`/api/dungeons/${dungeon.id}`, { dungeon })
 )
 
 export const showDungeon = dungeon => (
-    axios.get(`/api/dungeon/${dungeon.id}`)
+    axios.get(`/api/dungeons/${dungeon.id}`)
 )
 
 export const deleteDungeon = dungeon => (
-    axios.delete(`/api/dungeon/${dungeon.id}`)
+    axios.delete(`/api/dungeons/${dungeon.id}`)
 )

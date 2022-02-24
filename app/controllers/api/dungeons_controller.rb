@@ -1,8 +1,14 @@
-class DungeonsController < ApplicationController
+class Api::DungeonsController < ApplicationController
+
+    skip_before_action :verify_authenticity_token
+
     def create
         @dungeon = Dungeon.new(dungeon_params)
         @dungeon.player_id = current_user.id
         if @dungeon.save!
+            render "api/dungeons/show"
+        else
+            render json: @dungeon.errors.full_messages, status: 422
         end
     end
 
@@ -15,7 +21,7 @@ class DungeonsController < ApplicationController
         @dungeon = Dungeon.find_by(id: params[:id])
 
         if @dungeon.update(patch_dungeon_params)
-            render: show
+            render :show
         else
             render json: @dungeon.errors.full_messages, status: 422
         end
@@ -32,7 +38,7 @@ class DungeonsController < ApplicationController
     end
 
     def dungeon_params
-        params.require(:dungeon).permit(:room_amount, :current_room, :visited_rooms, :dungeon, :enemies, :treasure, :boss)
+        params.require(:dungeon).permit(:room_amount, :dungeon)
     end
 
 end

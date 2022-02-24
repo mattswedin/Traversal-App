@@ -6,7 +6,7 @@ const dungeonReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_DUNGEON:
-            return nextState[action.dungeon.id] = action.dungeon
+            return nextState[action.dungeon.id] = action.dungeon.data
         default:
             return state
     }

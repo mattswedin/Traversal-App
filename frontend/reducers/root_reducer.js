@@ -11,12 +11,3 @@ const rootReducer = (combineReducers)({
 })
 
 export default rootReducer;
-
-
-
-// const RootReducer = combineReducers({
-//   entities: entitiesReducer, // users, songs, albums, articles
-//   session: sessionReducer, 
-//   errors: errorsReducer, // sessionErrorsReducer, albumErrors
-//   ui: uiReducer, // modal
-// });

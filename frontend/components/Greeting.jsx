@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup, login, logout } from '../actions/session_actions'
+import DungeonCreator from './DungeonCreator';
 
 const Greeting = () => {
 
@@ -63,6 +64,7 @@ const Greeting = () => {
         <div>
             <h1>WELCOME {currentUser.username}</h1>
             <button onClick={() => dispatch(logout())}>Logout</button>
+            <DungeonCreator />
         </div>
     )
 }
