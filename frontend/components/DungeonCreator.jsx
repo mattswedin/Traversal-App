@@ -38,7 +38,8 @@ const DungeonCreator = () => {
 
         const dungeon = {
             room_amount: roomAmount,
-            entireDungeon: dungeonTree
+            entire_dungeon: dungeonTree,
+            current_room: currentRoom
         }
 
         const user = {

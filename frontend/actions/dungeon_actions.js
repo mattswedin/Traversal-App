@@ -34,9 +34,6 @@ export const showDungeon = dungeonId => dispatch => (
     .then((dungeon) => {
         dispatch(receiveDungeon(dungeon))
     })
-    .catch(err => {
-        dispatch(receiveDungeonErrors(err.response.data))
-    })
 )
 
 export const showAllDungeons = () => dispatch => (
