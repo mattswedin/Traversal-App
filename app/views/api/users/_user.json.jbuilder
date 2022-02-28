@@ -1,1 +1,1 @@
-json.extract! user, :id, :username, :level, :attack, :defense
+json.extract! user, :id, :username, :level, :attack, :defense, :hasDungeon

@@ -17,6 +17,11 @@ class Api::DungeonsController < ApplicationController
         render :show
     end
 
+    def index
+        @dungeons = Dungeon.all
+        render :index
+    end
+
     def update
         @dungeon = Dungeon.find_by(id: params[:id])
 

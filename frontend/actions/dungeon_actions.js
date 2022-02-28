@@ -2,6 +2,12 @@ import * as DungeonApiUtil from '../util/dungeon_api_util'
 
 export const RECEIVE_DUNGEON = 'RECEIVE_DUNGEON';
 export const RECEIVE_DUNGEON_ERRORS = 'RECEIVE_DUNGEON_ERRORS'
+export const RECEIVE_ALL_DUNGEONS = 'RECEIVE_ALL_DUNGEONS'
+
+export const receiveAllDungeons = (dungeons) => ({
+    type: RECEIVE_ALL_DUNGEONS,
+    dungeons
+})
 
 export const receiveDungeonErrors = errors => ({
     type: RECEIVE_DUNGEON_ERRORS,
@@ -23,10 +29,20 @@ export const createDungeon = dungeon => dispatch => (
     })
 )
 
-export const showDungeon = dungeon => dispatch => (
-    DungeonApiUtil.showDungeon(dungeon)
+export const showDungeon = dungeonId => dispatch => (
+    DungeonApiUtil.showDungeon(dungeonId)
     .then((dungeon) => {
         dispatch(receiveDungeon(dungeon))
+    })
+    .catch(err => {
+        dispatch(receiveDungeonErrors(err.response.data))
+    })
+)
+
+export const showAllDungeons = () => dispatch => (
+    DungeonApiUtil.showAllDungeons()
+    .then((dungeons) => {
+        dispatch(receiveAllDungeons(dungeons))
     })
 )
 

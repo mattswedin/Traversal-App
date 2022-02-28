@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { createDungeon } from '../actions/dungeon_actions'
+import { createDungeon, showAllDungeons } from '../actions/dungeon_actions'
+import { updateUser } from '../actions/session_actions'
 
 class Room {
     constructor(enemies, treasure, leet) {
@@ -13,8 +15,16 @@ class Room {
 }
 
 const DungeonCreator = () => {
-    const currentUser = useSelector(state => state.session.id)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(showAllDungeons())
+    }, [])
+
+    const currentUser = useSelector(state => state.session.id)
+    const currentDungeon = useSelector(state => {
+       return state.entities.dungeon[currentUser.id]
+    })
 
     //puts dungeon and roomAmount together
 
@@ -24,13 +34,20 @@ const DungeonCreator = () => {
 
         const roomAmount = dungeonRoomAmount(currentUser.level)
         const dungeonTree = dungeonBinaryTree(roomAmount)
+        const currentRoom = dungeonBinaryTree(roomAmount)
 
         const dungeon = {
             room_amount: roomAmount,
             entireDungeon: dungeonTree
         }
+
+        const user = {
+            id: currentUser.id,
+            hasDungeon: true
+        }
         
         dispatch(createDungeon(dungeon))
+        dispatch(updateUser(user))
     }
 
     //creates actualdungeon
@@ -157,8 +174,12 @@ const DungeonCreator = () => {
         }
     }
 
-    return (
-        <button onClick={createEntireDungeon}>Explore New Dungeon</button>
+    //DISPLAY
+
+    return !currentDungeon ? (
+        <button onClick={createEntireDungeon}>Find New Dungeon</button>
+    ) : (
+        <Link to={`/dungeon/${currentDungeon.id}`}>Dungeon'd!</Link>
     )
 
 }
