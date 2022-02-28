@@ -16,6 +16,7 @@ const DungeonCreator = () => {
     const currentUser = useSelector(state => state.session.id)
     const dispatch = useDispatch()
 
+    //puts dungeon and roomAmount together
 
     const createEntireDungeon = (e) => {  
 
@@ -32,17 +33,74 @@ const DungeonCreator = () => {
         dispatch(createDungeon(dungeon))
     }
 
-    const dungeonBinaryTree = (roomAmount) => {
-        const tree = []
-        let i = 0
+    //creates actualdungeon
 
-        while (i < roomAmount){
-            tree.push(roomCreator(currentUser.level))
-            i++
+    const dungeonBinaryTree = (roomAmount) => {
+        const root = roomCreator(currentUser.level)
+        const current_node = root
+
+        current_node.left = roomCreator(currentUser.level)
+        current_node.right = roomCreator(currentUser.level)
+        roomAmount -= 3
+
+        let roomAmountLeft = Math.floor(roomAmount / 2)
+        let roomAmountRight = Math.floor(roomAmount / 2)
+
+        if (!(roomAmount % 2 === 0)){
+            const rando = Math.floor(Math.random() * 2)
+
+            if (rando === 0){
+                roomAmountLeft += 1
+            } else {
+                roomAmountRight += 1
+            }
         }
 
-        return tree;
+        dungeonBinaryTreeHelper(current_node.right, roomAmountRight)
+        dungeonBinaryTreeHelper(current_node.left, roomAmountLeft)
+
+        return root
     }
+
+    const dungeonBinaryTreeHelper = (node, amount) => {
+    
+        if (amount === 0) return;
+        let rando = Math.floor(Math.random() * 2)
+
+        if (rando === 0){
+
+            if (!node.left && amount){
+            node.left = roomCreator(currentUser.level)
+            amount -= 1
+            }
+
+            if (!node.right && amount){
+                node.right = roomCreator(currentUser.level)
+                amount -= 1
+            }
+
+        } else {
+            if (!node.right && amount){
+                node.right = roomCreator(currentUser.level)
+                amount -= 1
+            }
+
+            if (!node.left && amount){
+                node.left = roomCreator(currentUser.level)
+                amount -= 1
+            }
+        }
+
+        rando = Math.floor(Math.random() * 2)
+
+        if (rando === 0){
+            dungeonBinaryTreeHelper(node.left, amount)
+        } else {
+            dungeonBinaryTreeHelper(node.right, amount)
+        }
+    }
+
+    //Creates a room. Difficulty based off level
 
     const roomCreator = (level) => {
 
@@ -52,6 +110,8 @@ const DungeonCreator = () => {
         const enemies = [];
         const treasure = [];
         const leet = [];
+
+        //need to optimize for beyond 30
 
         if (level < 30){
             const enemyAmount = Math.floor(Math.random() * 2)
@@ -84,12 +144,8 @@ const DungeonCreator = () => {
                 const pos = Math.floor(Math.random() * leetVaultEasy.length)
                 leet.push(leetVaultEasy[pos])
             }
-
             return new Room(enemies, treasure, leet)
-
         }
-
-        
     }
 
     const dungeonRoomAmount = (level) => {
@@ -100,8 +156,6 @@ const DungeonCreator = () => {
             return Math.floor(level * .2)
         }
     }
-
-
 
     return (
         <button onClick={createEntireDungeon}>Explore New Dungeon</button>
