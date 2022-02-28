@@ -4,7 +4,7 @@
 #
 #  id            :bigint           not null, primary key
 #  current_room  :text
-#  dungeon       :text
+#  entireDungeon :text             default([]), is an Array
 #  room_amount   :integer          default(3), not null
 #  visited_rooms :text
 #  created_at    :datetime         not null

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { createDungeon } from '../actions/dungeon_actions'
 
@@ -16,12 +16,6 @@ const DungeonCreator = () => {
     const currentUser = useSelector(state => state.session.id)
     const dispatch = useDispatch()
 
-    // const [state, setState] = useState({
-    //     room_amount: '',
-    //     dungeon: ''
-    // })
-
-    
 
     const createEntireDungeon = (e) => {  
 
@@ -30,22 +24,20 @@ const DungeonCreator = () => {
         const roomAmount = dungeonRoomAmount(currentUser.level)
         const dungeonTree = dungeonBinaryTree(roomAmount)
 
-        // setState({ ['room_amount']: roomAmount, ['dungeon']: dungeonTree  })
-
         const dungeon = {
             room_amount: roomAmount,
-            dungeon: dungeonTree
+            entireDungeon: dungeonTree
         }
         
         dispatch(createDungeon(dungeon))
     }
 
     const dungeonBinaryTree = (roomAmount) => {
-        const tree = {}
+        const tree = []
         let i = 0
 
         while (i < roomAmount){
-            tree[i] = roomCreator(currentUser.level)
+            tree.push(roomCreator(currentUser.level))
             i++
         }
 
@@ -68,6 +60,8 @@ const DungeonCreator = () => {
 
             //Random Enemies
 
+            if (enemyAmount === 0) enemies.push('Empty')
+
             for (let i = 0; i < enemyAmount; i++){
                 const pos = Math.floor(Math.random() * enemyVaultEasy.length)
                 enemies.push(enemyVaultEasy[pos])
@@ -75,12 +69,16 @@ const DungeonCreator = () => {
 
             //Random Treasures
 
+            if (treasureAmount === 0) treasure.push('Empty')
+
             for (let i = 0; i < treasureAmount; i++){
                 const pos = Math.floor(Math.random() * treasureVaultEasy.length)
                 treasure.push(treasureVaultEasy[pos])
             }
 
             //Random Leet
+
+            if (leetAmount === 0) leet.push('Empty')
 
             for(let i = 0; i < leetAmount; i++){
                 const pos = Math.floor(Math.random() * leetVaultEasy.length)
