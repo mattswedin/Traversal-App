@@ -9223,3 +9223,225 @@ Unpermitted parameters: :left, :right
 Completed 200 OK in 52ms (Views: 12.4ms | ActiveRecord: 7.7ms)
 
 
+Started GET "/" for ::1 at 2022-02-28 14:19:58 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 1304ms (Views: 1295.3ms | ActiveRecord: 8.8ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-02-28 14:20:04 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entireDungeon"=>{"enemies"=>["enemyA"], "treasure"=>["treasureA"], "leet"=>["Empty"], "left"=>{"enemies"=>["enemyD"], "treasure"=>["treasureA"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["enemyD"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}, "right"=>{"enemies"=>["enemyD"], "treasure"=>["treasureD"], "leet"=>["fibonocci"], "left"=>nil, "right"=>{"enemies"=>["Empty"], "treasure"=>["treasureB"], "leet"=>["fizbiz"], "left"=>nil, "right"=>nil}}}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mDungeon Create (4.3ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "created_at", "updated_at", "entireDungeon") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["player_id", 1], ["room_amount", 5], ["created_at", "2022-02-28 19:20:04.790358"], ["updated_at", "2022-02-28 19:20:04.790358"], ["entireDungeon", "{\"enemies\"=>[\"enemyA\"], \"treasure\"=>[\"treasureA\"], \"leet\"=>[\"Empty\"], \"left\"=>{\"enemies\"=>[\"enemyD\"], \"treasure\"=>[\"treasureA\"], \"leet\"=>[\"Empty\"], \"left\"=>nil, \"right\"=>{\"enemies\"=>[\"enemyD\"], \"treasure\"=>[\"Empty\"], \"leet\"=>[\"Empty\"], \"left\"=>nil, \"right\"=>nil}}, \"right\"=>{\"enemies\"=>[\"enemyD\"], \"treasure\"=>[\"treasureD\"], \"leet\"=>[\"fibonocci\"], \"left\"=>nil, \"right\"=>{\"enemies\"=>[\"Empty\"], \"treasure\"=>[\"treasureB\"], \"leet\"=>[\"fizbiz\"], \"left\"=>nil, \"right\"=>nil}}}"]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 10.8ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::InvalidTextRepresentation: ERROR:  malformed array literal: "{"enemies"=>["enemyA"], "treasure"=>["treasureA"], "leet"=>["Empty"], "left"=>{"enemies"=>["enemyD"], "treasure"=>["treasureA"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["enemyD"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}, "right"=>{"enemies"=>["enemyD"], "treasure"=>["treasureD"], "leet"=>["fibonocci"], "left"=>nil, "right"=>{"enemies"=>["Empty"], "treasure"=>["treasureB"], "leet"=>["fizbiz"], "left"=>nil, "right"=>nil}}}"
+DETAIL:  Unexpected array element.
+: INSERT INTO "dungeons" ("player_id", "room_amount", "created_at", "updated_at", "entireDungeon") VALUES ($1, $2, $3, $4, $5) RETURNING "id":
+  app/controllers/api/dungeons_controller.rb:8:in `create'
+
+Started GET "/" for ::1 at 2022-02-28 14:24:13 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 38ms (Views: 31.9ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-02-28 14:24:15 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entireDungeon"=>{"enemies"=>["enemyA"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>{"enemies"=>["Empty"], "treasure"=>["Empty"], "leet"=>["two_sum"], "left"=>nil, "right"=>{"enemies"=>["enemyA"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}, "right"=>{"enemies"=>["Empty"], "treasure"=>["treasureB"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["Empty"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}}}}
+Unpermitted parameter: :entireDungeon
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mDungeon Create (4.4ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["player_id", 1], ["room_amount", 5], ["created_at", "2022-02-28 19:24:15.293285"], ["updated_at", "2022-02-28 19:24:15.293285"]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (2.0ms)
+Completed 200 OK in 28ms (Views: 8.3ms | ActiveRecord: 7.6ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3567478766450924640)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeDungeonAgain (20220228192914)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "dungeons" DROP COLUMN "entireDungeon"[0m
+  ↳ db/migrate/20220228192914_change_dungeon_again.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "dungeons" ADD "entireDungeon" text[0m
+  ↳ db/migrate/20220228192914_change_dungeon_again.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220228192914"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3567478766450924640)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-02-28 14:32:29 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 38ms (Views: 33.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-28 14:32:44 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 514ms (Views: 510.7ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-02-28 14:32:46 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entireDungeon"=>{"enemies"=>["Empty"], "treasure"=>["Empty"], "leet"=>["fibonocci"], "left"=>{"enemies"=>["enemyD"], "treasure"=>["Empty"], "leet"=>["fizbiz"], "left"=>nil, "right"=>{"enemies"=>["enemyA"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}, "right"=>{"enemies"=>["enemyB"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>{"enemies"=>["Empty"], "treasure"=>["treasureA"], "leet"=>["fibonocci"], "left"=>nil, "right"=>nil}, "right"=>nil}}}}
+Unpermitted parameter: :entireDungeon
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mDungeon Create (0.4ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["player_id", 1], ["room_amount", 5], ["created_at", "2022-02-28 19:32:46.707758"], ["updated_at", "2022-02-28 19:32:46.707758"]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (1.6ms)
+Completed 200 OK in 28ms (Views: 7.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2022-02-28 14:35:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-02-28 14:35:45 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entireDungeon"=>{"enemies"=>["Empty"], "treasure"=>["Empty"], "leet"=>["fizbiz"], "left"=>{"enemies"=>["Empty"], "treasure"=>["treasureC"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["enemyD"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}, "right"=>{"enemies"=>["Empty"], "treasure"=>["Empty"], "leet"=>["two_sum"], "left"=>{"enemies"=>["enemyC"], "treasure"=>["Empty"], "leet"=>["is_prime?"], "left"=>nil, "right"=>nil}, "right"=>nil}}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mDungeon Create (0.9ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "created_at", "updated_at", "entireDungeon") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["player_id", 1], ["room_amount", 5], ["created_at", "2022-02-28 19:35:45.236903"], ["updated_at", "2022-02-28 19:35:45.236903"], ["entireDungeon", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nenemies:\n- Empty\ntreasure:\n- Empty\nleet:\n- fizbiz\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  enemies:\n  - Empty\n  treasure:\n  - treasureC\n  leet:\n  - Empty\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    enemies:\n    - enemyD\n    treasure:\n    - Empty\n    leet:\n    - Empty\n    left: \n    right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  enemies:\n  - Empty\n  treasure:\n  - Empty\n  leet:\n  - two_sum\n  left: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    enemies:\n    - enemyC\n    treasure:\n    - Empty\n    leet:\n    - is_prime?\n    left: \n    right: \n  right: \n"]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (2.3ms)
+Completed 200 OK in 28ms (Views: 8.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for ::1 at 2022-02-28 14:36:24 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-02-28 14:36:26 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entireDungeon"=>{"enemies"=>["enemyA"], "treasure"=>["treasureC"], "leet"=>["Empty"], "left"=>{"enemies"=>["enemyB"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["Empty"], "treasure"=>["treasureA"], "leet"=>["two_sum"], "left"=>nil, "right"=>nil}}, "right"=>{"enemies"=>["Empty"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["enemyB"], "treasure"=>["treasureC"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mDungeon Create (0.3ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "created_at", "updated_at", "entireDungeon") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["player_id", 1], ["room_amount", 5], ["created_at", "2022-02-28 19:36:26.476351"], ["updated_at", "2022-02-28 19:36:26.476351"], ["entireDungeon", "{\"enemies\"=>[\"enemyA\"], \"treasure\"=>[\"treasureC\"], \"leet\"=>[\"Empty\"], \"left\"=>{\"enemies\"=>[\"enemyB\"], \"treasure\"=>[\"Empty\"], \"leet\"=>[\"Empty\"], \"left\"=>nil, \"right\"=>{\"enemies\"=>[\"Empty\"], \"treasure\"=>[\"treasureA\"], \"leet\"=>[\"two_sum\"], \"left\"=>nil, \"right\"=>nil}}, \"right\"=>{\"enemies\"=>[\"Empty\"], \"treasure\"=>[\"Empty\"], \"leet\"=>[\"Empty\"], \"left\"=>nil, \"right\"=>{\"enemies\"=>[\"enemyB\"], \"treasure\"=>[\"treasureC\"], \"leet\"=>[\"Empty\"], \"left\"=>nil, \"right\"=>nil}}}"]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (1.5ms)
+Completed 200 OK in 23ms (Views: 7.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2022-02-28 14:36:41 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-02-28 14:36:43 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entireDungeon"=>{"enemies"=>["enemyD"], "treasure"=>["Empty"], "leet"=>["is_prime?"], "left"=>{"enemies"=>["enemyB"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["enemyB"], "treasure"=>["Empty"], "leet"=>["two_sum"], "left"=>nil, "right"=>nil}}, "right"=>{"enemies"=>["enemyA"], "treasure"=>["treasureD"], "leet"=>["Empty"], "left"=>nil, "right"=>{"enemies"=>["enemyB"], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}}}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "R3b6fn2xYyVVBeMFn-YYRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[36mDungeon Create (1.3ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "created_at", "updated_at", "entireDungeon") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["player_id", 1], ["room_amount", 5], ["created_at", "2022-02-28 19:36:43.383333"], ["updated_at", "2022-02-28 19:36:43.383333"], ["entireDungeon", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nenemies:\n- enemyD\ntreasure:\n- Empty\nleet:\n- is_prime?\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  enemies:\n  - enemyB\n  treasure:\n  - Empty\n  leet:\n  - Empty\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    enemies:\n    - enemyB\n    treasure:\n    - Empty\n    leet:\n    - two_sum\n    left: \n    right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  enemies:\n  - enemyA\n  treasure:\n  - treasureD\n  leet:\n  - Empty\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    enemies:\n    - enemyB\n    treasure:\n    - Empty\n    leet:\n    - Empty\n    left: \n    right: \n"]]
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:8
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.2ms)
+  Rendered api/dungeons/show.json.jbuilder (2.1ms)
+Completed 200 OK in 37ms (Views: 7.2ms | ActiveRecord: 6.7ms)
+
+

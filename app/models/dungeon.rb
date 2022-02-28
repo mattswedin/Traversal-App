@@ -4,7 +4,7 @@
 #
 #  id            :bigint           not null, primary key
 #  current_room  :text
-#  entireDungeon :text             default([]), is an Array
+#  entireDungeon :text
 #  room_amount   :integer          default(3), not null
 #  visited_rooms :text
 #  created_at    :datetime         not null
@@ -13,6 +13,9 @@
 #
 
 class Dungeon < ApplicationRecord
+
+   serialize :entireDungeon, Object
+
    validates :player_id, presence: true
    validates :room_amount, presence: true
 
