@@ -34,12 +34,12 @@ const DungeonCreator = () => {
 
         const roomAmount = dungeonRoomAmount(currentUser.level)
         const dungeonTree = dungeonBinaryTree(roomAmount)
-        const currentRoom = dungeonBinaryTree(roomAmount)
+        
 
         const dungeon = {
             room_amount: roomAmount,
             entire_dungeon: dungeonTree,
-            current_room: currentRoom
+            current_room: dungeonTree
         }
 
         const user = {

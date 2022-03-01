@@ -42,6 +42,8 @@ class Api::DungeonsController < ApplicationController
         end
     end
 
+    private
+
     def dungeon_params
         params.require(:dungeon).permit(:room_amount, :entire_dungeon => {}, :current_room => {} )
     end
