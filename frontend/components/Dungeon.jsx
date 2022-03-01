@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { showDungeon } from "../actions/dungeon_actions"
+import { showDungeon, updateDungeon } from "../actions/dungeon_actions"
 import { useParams } from "react-router"
 
 const Dungeon = () => {
@@ -17,7 +17,21 @@ const Dungeon = () => {
     })
 
     const traverse = (direction) => {
-        console.log(`hi ${direction}`)
+        let state;
+
+        if (direction === "left"){
+            state = {
+                id: dungeon.id,
+                current_room: dungeon.current_room.left
+            }
+        } else {
+            state = {
+                id: dungeon.id,
+                current_room: dungeon.current_room.right
+            }
+        }
+
+        dispatch(updateDungeon(state))
     }
 
     return dungeon.current_room ? (
@@ -40,6 +54,15 @@ const Dungeon = () => {
                 {
                    dungeon.current_room.right ? (
                     <button onClick={() => traverse('right')}>Right</button>
+                   ) : (
+                    <div></div>
+                   )
+                }
+            </div>
+             <div>
+                {
+                   !dungeon.current_room.right && !dungeon.current_room.left ? (
+                    <button>Go back</button>
                    ) : (
                     <div></div>
                    )

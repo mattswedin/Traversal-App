@@ -25,7 +25,7 @@ class Api::DungeonsController < ApplicationController
     def update
         @dungeon = Dungeon.find_by(id: params[:id])
 
-        if @dungeon.update(patch_dungeon_params)
+        if @dungeon.update(dungeon_params)
             render :show
         else
             render json: @dungeon.errors.full_messages, status: 422
