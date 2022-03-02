@@ -2,9 +2,11 @@ import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { showDungeon, updateDungeon } from "../actions/dungeon_actions"
 import { useParams } from "react-router"
+import { useNavigate } from "react-router-dom";
+import DungeonCode from "./DungeonCode";
 
 const Dungeon = () => {
-
+    const history = useNavigate()
     const dispatch = useDispatch()
     const id = useParams()
 
@@ -24,23 +26,50 @@ const Dungeon = () => {
                 id: dungeon.id,
                 current_room: dungeon.current_room.left
             }
-        } else {
+        } else if (direction === "right") {
             state = {
                 id: dungeon.id,
                 current_room: dungeon.current_room.right
             }
+        } else {
+            state = {
+                id: dungeon.id,
+                current_room: dungeon.entire_dungeon
+            }
+            dispatch(updateDungeon(state))
+            history('/');
         }
 
         dispatch(updateDungeon(state))
     }
 
+
     return dungeon.current_room ? (
         <div>
-            <h1>THE DUNGEON!</h1>
-            <h1>{dungeon.room_amount}</h1>
-            <h1>{dungeon.current_room.enemies[0]}</h1>
-            <h1>{dungeon.current_room.treasure[0]}</h1>
-            <h1>{dungeon.current_room.leet[0]}</h1>
+            <h1>{dungeon.name}</h1>
+            <h2>{dungeon.current_room.name}</h2>
+            <br/>
+            <h1>
+                {
+                    dungeon.current_room.leet.map(problem => (
+                        problem 
+                    ))
+                }
+            </h1>
+            <h1>
+                {
+                    dungeon.current_room.enemies.map(enemy => (
+                        enemy 
+                    ))
+                }
+            </h1>
+            <h1>
+                {
+                    dungeon.current_room.treasure.map(treas => (
+                        treas 
+                    ))
+                }
+            </h1>
             <div>
                 {
                    dungeon.current_room.left ? (
@@ -62,7 +91,7 @@ const Dungeon = () => {
              <div>
                 {
                    !dungeon.current_room.right && !dungeon.current_room.left ? (
-                    <button>Go back</button>
+                    <button onClick={() => traverse('return')}>Go back</button>
                    ) : (
                     <div></div>
                    )

@@ -1,4 +1,6 @@
+
 const path = require('path');
+// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
     context: __dirname,
@@ -21,6 +23,7 @@ module.exports = {
             }
         ]
     },
+    // plugins: [new MonacoWebpackPlugin()],
     devtool: 'source-map',
     resolve: {
         extensions: [".js", ".jsx", "*"]

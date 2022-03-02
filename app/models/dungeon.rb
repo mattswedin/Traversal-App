@@ -5,6 +5,7 @@
 #  id             :bigint           not null, primary key
 #  current_room   :text
 #  entire_dungeon :text
+#  name           :string
 #  room_amount    :integer          default(3), not null
 #  visited_rooms  :text
 #  created_at     :datetime         not null

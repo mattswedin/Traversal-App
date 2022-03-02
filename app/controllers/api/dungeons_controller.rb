@@ -1,10 +1,13 @@
-class Api::DungeonsController < ApplicationController
+require 'faker'
 
+class Api::DungeonsController < ApplicationController
+    
     skip_before_action :verify_authenticity_token
 
     def create
         @dungeon = Dungeon.new(dungeon_params)
         @dungeon.player_id = current_user.id
+        @dungeon.name = "The " + Faker::Creature::Bird.unique.adjective.capitalize() + " " + Faker::Creature::Animal.unique.name.capitalize() + " Dungeon"
         if @dungeon.save!
             render "api/dungeons/show"
         else

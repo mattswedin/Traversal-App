@@ -3,9 +3,12 @@ import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { createDungeon, showAllDungeons } from '../actions/dungeon_actions'
 import { updateUser } from '../actions/session_actions'
+const { faker } = require('@faker-js/faker');
+
 
 class Room {
     constructor(enemies, treasure, leet) {
+        this.name = "The " + faker.name.firstName() + " Room"
         this.enemies = [ ...enemies ]
         this.treasure = [ ...treasure ]
         this.leet = [ ...leet ]
@@ -49,6 +52,7 @@ const DungeonCreator = () => {
         
         dispatch(createDungeon(dungeon))
         dispatch(updateUser(user))
+    
     }
 
     //creates actualdungeon
@@ -122,7 +126,7 @@ const DungeonCreator = () => {
 
     const roomCreator = (level) => {
 
-        const enemyVaultEasy = ['enemyA', 'enemyB', 'enemyC', 'enemyD']
+        const enemyVaultEasy = ['enemyA', 'enemyB', 'enemyC', 'enemyD', 'enemyF', 'enemyG']
         const treasureVaultEasy = ['treasureA', 'treasureB', 'treasureC', 'treasureD']
         const leetVaultEasy = ['two_sum', 'is_prime?', 'fizbiz', "fibonocci"]
         const enemies = [];
@@ -132,9 +136,9 @@ const DungeonCreator = () => {
         //need to optimize for beyond 30
 
         if (level < 30){
-            const enemyAmount = Math.floor(Math.random() * 2)
-            const treasureAmount = Math.floor(Math.random() * 2)
-            const leetAmount = Math.floor(Math.random() * 2)
+            const enemyAmount = Math.floor(Math.random() * 3)
+            const treasureAmount = Math.floor(Math.random() * 3)
+            const leetAmount = Math.floor(Math.random() * 3)
 
             //Random Enemies
 
@@ -180,7 +184,7 @@ const DungeonCreator = () => {
     return !currentDungeon ? (
         <button onClick={createEntireDungeon}>Find New Dungeon</button>
     ) : (
-        <Link to={`/dungeon/${currentDungeon.id}`}>Dungeon'd!</Link>
+        <Link to={`/dungeon/${currentDungeon.id}`}>{currentDungeon.name}</Link>
     )
 
 }
