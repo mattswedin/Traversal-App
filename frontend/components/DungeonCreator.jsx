@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from "react-redux"
 import { createDungeon, showAllDungeons } from '../actions/dungeon_actions'
 import { updateUser } from '../actions/session_actions'
 const { faker } = require('@faker-js/faker');
+import Enemy from "./util/EnemyCreator"
 
 
 class Room {
     constructor(enemies, treasure, leet) {
-        this.name = "The " + faker.name.firstName() + " Room"
+        this.name = "The " + faker.name.lastName() + " Room"
         this.enemies = [ ...enemies ]
         this.treasure = [ ...treasure ]
         this.leet = [ ...leet ]
@@ -92,23 +93,23 @@ const DungeonCreator = () => {
         if (rando === 0){
 
             if (!node.left && amount){
-            node.left = roomCreator(currentUser.level)
+            node.left = roomCreator(currentUser.level, amount)
             amount -= 1
             }
 
             if (!node.right && amount){
-                node.right = roomCreator(currentUser.level)
+                node.right = roomCreator(currentUser.level, amount)
                 amount -= 1
             }
 
         } else {
             if (!node.right && amount){
-                node.right = roomCreator(currentUser.level)
+                node.right = roomCreator(currentUser.level, amount)
                 amount -= 1
             }
 
             if (!node.left && amount){
-                node.left = roomCreator(currentUser.level)
+                node.left = roomCreator(currentUser.level, amount)
                 amount -= 1
             }
         }
@@ -124,9 +125,8 @@ const DungeonCreator = () => {
 
     //Creates a room. Difficulty based off level
 
-    const roomCreator = (level) => {
+    const roomCreator = (level, amount) => {
 
-        const enemyVaultEasy = ['enemyA', 'enemyB', 'enemyC', 'enemyD', 'enemyF', 'enemyG']
         const treasureVaultEasy = ['treasureA', 'treasureB', 'treasureC', 'treasureD']
         const leetVaultEasy = ['two_sum', 'is_prime?', 'fizbiz', "fibonocci"]
         const enemies = [];
@@ -145,8 +145,8 @@ const DungeonCreator = () => {
             if (enemyAmount === 0) enemies.push('Empty')
 
             for (let i = 0; i < enemyAmount; i++){
-                const pos = Math.floor(Math.random() * enemyVaultEasy.length)
-                enemies.push(enemyVaultEasy[pos])
+                let enemy = new Enemy(currentUser.level, 'Gargoyle', amount )
+                enemies.push(enemy)
             }
 
             //Random Treasures

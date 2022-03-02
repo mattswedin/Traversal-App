@@ -4,6 +4,7 @@ import { showDungeon, updateDungeon } from "../actions/dungeon_actions"
 import { useParams } from "react-router"
 import { useNavigate } from "react-router-dom";
 import DungeonCode from "./DungeonCode";
+import DungeonBattle from "./DungeonBattle";
 
 const Dungeon = () => {
     const history = useNavigate()
@@ -51,50 +52,54 @@ const Dungeon = () => {
             <br/>
             <h1>
                 {
-                    dungeon.current_room.leet.map(problem => (
+                    dungeon.current_room.leet[0] != "Empty" ? dungeon.current_room.leet.map(problem => (
                         problem 
-                    ))
+                    )) : null
                 }
             </h1>
-            <h1>
+            <div> 
                 {
-                    dungeon.current_room.enemies.map(enemy => (
-                        enemy 
-                    ))
+                    dungeon.current_room.enemies[0] != "Empty" ? dungeon.current_room.enemies.map(enemy => (
+                        <div>
+                            <br/>
+                            <h4>The {enemy.type}</h4>
+                            <br/>
+                        </div>                    
+                    )) : null 
                 }
-            </h1>
+            </div>
+            <div>
+                {
+                    dungeon.current_room.enemies[0] != "Empty" ? <DungeonBattle enemies={dungeon.current_room.enemies} /> : null
+                }
+            </div>
             <h1>
                 {
-                    dungeon.current_room.treasure.map(treas => (
+                    dungeon.current_room.treasure[0] != "Empty" ? dungeon.current_room.treasure.map(treas => (
                         treas 
-                    ))
+                    )) : null
                 }
             </h1>
             <div>
                 {
                    dungeon.current_room.left ? (
                     <button onClick={() => traverse('left')}>Left</button>
-                   ) : (
-                    <div></div>
-                   )
+                   ) : null
+                   
                 }
             </div>
             <div>
                 {
                    dungeon.current_room.right ? (
                     <button onClick={() => traverse('right')}>Right</button>
-                   ) : (
-                    <div></div>
-                   )
+                   ) : null  
                 }
             </div>
              <div>
                 {
                    !dungeon.current_room.right && !dungeon.current_room.left ? (
                     <button onClick={() => traverse('return')}>Go back</button>
-                   ) : (
-                    <div></div>
-                   )
+                   ) : null
                 }
             </div>
         </div>
