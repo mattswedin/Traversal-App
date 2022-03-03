@@ -3,7 +3,7 @@ import * as BattleApiUtil from '../util/battle_api_util'
 export const RECEIVE_BATTLE = 'RECEIVE_BATTLE'
 export const RECEIVE_BATTLE_ERRORS = 'RECEIVE_BATTLE_ERRORS'
 
-export const receieveBattleErrors = error => ({
+export const receieveBattleErrors = errors => ({
     type: RECEIVE_BATTLE_ERRORS,
     errors
 })
