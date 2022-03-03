@@ -1,36 +1,69 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-let gameText = null;
+const DungeonBattle = ({enemies}) => {
 
-class Battle {
-    contructor(enemies){
-        this.enemies = enemies;
-    }
+    const [gameText, setGameText] = useState('')
 
-    gameStart(){
-        switch (this.enemies.length) {
+    useEffect(() => {
+        gameStart()
+    }, [enemies])
+
+
+    const gameStart = () => {
+
+        switch (enemies.length) {
             case 1:
-                gameText = `The ${this.enemies[0].type} materialized in front of you!`
+                setGameText(`The ${enemies[0].type} materialized in front of you!`)
+                break;
             case 2:
-                gameText = `The ${this.enemies[0].type} & ${this.enemies[1].type} materialized in front of you!`
+                setGameText(`The ${enemies[0].type} & ${enemies[1].type} materialized in front of you!`)
+                break;
             case 3:
-                gameText = `The ${this.enemies[0].type}, ${this.enemies[1].type}, & ${this.enemies[2].type} materialized in front of you!`
+                setGameText(`The ${enemies[0].type}, ${enemies[1].type}, & ${enemies[2].type} materialized in front of you!`)
+                break;
             default:
                 break;
-        }
+        };
+
     }
 
-};
+    const [pick, setPick] = useState(false)
 
-const DungeonBattle = ({ enemies }) => {
+    const playerAttack = () => {
 
-    const battle = new Battle(enemies);
-
-    battle.gameStart();
+        if (enemies.length > 1){
+            setPick(true)
+            setGameText('Which enemy will you chose?')
+        }
+       
+    }
 
     return gameText ? (
         <div>
+            <div>
+                {
+                        enemies.map((enemy, i) => (
+                                <div key={enemy.name} > 
+                                    <br/>
+                                    <h4>The {enemy.type}</h4>
+                                    <br/>
+                                    <div>
+                                        {
+                                            pick ? (
+                                                <button>{enemy.name}</button>
+                                            ) : null
+                                        }
+                                    </div>
+                                </div>                    
+                            ))
+                }
+            </div>
             <h1>{gameText}</h1>
+            <div>
+                <button onClick={() => playerAttack()}>Attack</button>
+                <button>Speak</button>
+            </div>
+            
         </div>
 
     ) : null

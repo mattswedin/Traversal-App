@@ -27,6 +27,11 @@ class User < ApplicationRecord
     has_one :dungeon,
     foreign_key: :player_id,
     class_name: :Dungeon
+    
+    has_one :battle,
+    foreign_key: :player_id,
+    class_name: :Battle
+    
 
     after_initialize :ensure_session_token 
     attr_reader :password

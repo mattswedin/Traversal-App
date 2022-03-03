@@ -19,6 +19,7 @@ const Dungeon = () => {
         return state.entities.dungeon
     })
 
+
     const traverse = (direction) => {
         let state;
 
@@ -57,17 +58,6 @@ const Dungeon = () => {
                     )) : null
                 }
             </h1>
-            <div> 
-                {
-                    dungeon.current_room.enemies[0] != "Empty" ? dungeon.current_room.enemies.map((enemy, i) => (
-                        <div key={enemy.name} > 
-                            <br/>
-                            <h4>The {enemy.type}</h4>
-                            <br/>
-                        </div>                    
-                    )) : null 
-                }
-            </div>
             <div>
                 {
                     dungeon.current_room.enemies[0] != "Empty" ? <DungeonBattle enemies={dungeon.current_room.enemies} /> : null
