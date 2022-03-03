@@ -16,7 +16,7 @@ module.exports = {
                 exclude: /(node_modules)/,
                 use: {
                     // added 'file-loader'
-                    loader: ['babel-loader', 'file-loader'], 
+                    loader: 'babel-loader', 
                     options: {
                         presets: ['@babel/env', '@babel/react']
                     }

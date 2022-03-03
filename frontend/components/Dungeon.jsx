@@ -59,8 +59,8 @@ const Dungeon = () => {
             </h1>
             <div> 
                 {
-                    dungeon.current_room.enemies[0] != "Empty" ? dungeon.current_room.enemies.map(enemy => (
-                        <div>
+                    dungeon.current_room.enemies[0] != "Empty" ? dungeon.current_room.enemies.map((enemy, i) => (
+                        <div key={enemy.name} > 
                             <br/>
                             <h4>The {enemy.type}</h4>
                             <br/>
