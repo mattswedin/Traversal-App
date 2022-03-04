@@ -4,7 +4,6 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        # @battle = Battle.new()
         
         if @user.save
            login!(@user)

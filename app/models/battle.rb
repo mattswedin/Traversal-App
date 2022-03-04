@@ -9,7 +9,7 @@
 #
 class Battle < ApplicationRecord
 
-    serialize :enemies, Object
+    # serialize :enemies, Object
 
     belongs_to :user,
     foreign_key: :player_id,

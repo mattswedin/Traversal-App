@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
+import { createBattle } from "../actions/battle_actions"
 import { createDungeon, showAllDungeons } from '../actions/dungeon_actions'
 import { updateUser } from '../actions/session_actions'
 const { faker } = require('@faker-js/faker');
@@ -53,6 +54,7 @@ const DungeonCreator = () => {
         
         dispatch(createDungeon(dungeon))
         dispatch(updateUser(user))
+        dispatch(createBattle())
     
     }
 

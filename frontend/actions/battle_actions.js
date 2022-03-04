@@ -13,6 +13,16 @@ export const receieveBattle = battle => ({
     battle
 })
 
+export const createBattle = battle => dispatch => (
+    BattleApiUtil.createBattle(battle)
+    .then((battle) => {
+        dispatch(receieveBattle(battle))
+    })
+    .catch((err) => {
+        dispatch(receieveBattleErrors(err))
+    })
+)
+
 export const updateBattle = battle => dispatch => (
     BattleApiUtil.updateBattle(battle)
     .then((battle) => {

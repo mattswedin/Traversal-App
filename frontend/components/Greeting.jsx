@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup, login, logout } from '../actions/session_actions'
 import DungeonCreator from './DungeonCreator';
+import { createBattle } from '../actions/battle_actions';
 
 const Greeting = () => {
 
@@ -33,6 +34,7 @@ const Greeting = () => {
 
         if( kind === 'signup' ){
             dispatch(signup(user, token))
+            
         } else {
             dispatch(login(user))
         }

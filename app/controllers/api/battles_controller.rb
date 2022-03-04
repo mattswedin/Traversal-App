@@ -5,7 +5,7 @@ class Api::BattlesController < ApplicationController
     def create
         @battle = Battle.new()
         @battle.player_id = current_user.id
-        if @battle.save
+        if @battle.save!
             render :show
         else
             render json: @battle.errors.full_messages, status: 422
@@ -28,7 +28,7 @@ class Api::BattlesController < ApplicationController
     private
 
     def battle_params
-        require.params(:battle).permit(:enemies[][enemy] => {}, :game_text)
+        params.require(:battle).permit(:enemies, :game_text )
     end
 
 
