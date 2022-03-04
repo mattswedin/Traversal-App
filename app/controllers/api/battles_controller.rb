@@ -14,6 +14,12 @@ class Api::BattlesController < ApplicationController
 
     def show
         @battle = Battle.find_by(id: params[:id])
+        render :show
+    end
+
+    def index
+        @battles = Battle.all
+        render :index
     end
 
     def update
@@ -28,7 +34,7 @@ class Api::BattlesController < ApplicationController
     private
 
     def battle_params
-        params.require(:battle).permit(:enemies, :game_text )
+        params.require(:battle).permit(:enemies, :game_text)
     end
 
 

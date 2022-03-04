@@ -9,7 +9,8 @@
 #
 class Battle < ApplicationRecord
 
-    # serialize :enemies, Object
+    serialize :enemies, Object
+    # self.primary_key = :player_id
 
     belongs_to :user,
     foreign_key: :player_id,

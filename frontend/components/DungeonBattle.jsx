@@ -4,6 +4,8 @@ const DungeonBattle = ({enemies}) => {
 
     const [gameText, setGameText] = useState('')
 
+    
+
     useEffect(() => {
         gameStart()
     }, [enemies])
@@ -14,9 +16,11 @@ const DungeonBattle = ({enemies}) => {
         switch (enemies.length) {
             case 1:
                 setGameText(`The ${enemies[0].type} materialized in front of you!`)
+                // dispatch(updateBattle(gameText))
                 break;
             case 2:
                 setGameText(`The ${enemies[0].type} & ${enemies[1].type} materialized in front of you!`)
+
                 break;
             case 3:
                 setGameText(`The ${enemies[0].type}, ${enemies[1].type}, & ${enemies[2].type} materialized in front of you!`)

@@ -35425,3 +35425,1593 @@ Completed 200 OK in 50ms (Views: 31.1ms | ActiveRecord: 3.6ms)
 Completed 200 OK in 62ms (Views: 13.8ms | ActiveRecord: 30.3ms)
 
 
+Started GET "/" for ::1 at 2022-03-04 11:16:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6HHxl5ZHtdMuJrMY7STvzw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 2147ms (Views: 2145.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:16:04 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.6ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/index.json.jbuilder (36.5ms)
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/dungeons/12" for ::1 at 2022-03-04 11:24:15 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mDungeon Load (0.6ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.4ms)
+  Rendered api/dungeons/show.json.jbuilder (10.0ms)
+Completed 200 OK in 45ms (Views: 19.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 11:24:45 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6HHxl5ZHtdMuJrMY7STvzw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 2847ms (Views: 2843.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/dungeons/12" for ::1 at 2022-03-04 11:24:49 -0500
+Started GET "/api/battles/19" for ::1 at 2022-03-04 11:24:49 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mDungeon Load (0.3ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (4.1ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+
+SyntaxError - syntax error, unexpected ']'
+...y(player_id: params[player_id:])
+...                              ^:
+  app/controllers/api/battles_controller.rb:20:in `'
+
+Started GET "/" for ::1 at 2022-03-04 11:25:25 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6HHxl5ZHtdMuJrMY7STvzw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 141ms (Views: 135.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/api/dungeons/12" for ::1 at 2022-03-04 11:25:26 -0500
+Started GET "/api/battles/19" for ::1 at 2022-03-04 11:25:26 -0500
+
+LoadError - Unable to autoload constant Api::BattlesController, expected /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/controllers/api/battles_controller.rb to define it:
+
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mDungeon Load (0.7ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.4ms)
+  Rendered api/dungeons/show.json.jbuilder (4.6ms)
+Completed 200 OK in 23ms (Views: 9.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 11:31:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6HHxl5ZHtdMuJrMY7STvzw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 145ms (Views: 138.1ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/api/dungeons/12" for ::1 at 2022-03-04 11:31:29 -0500
+Started GET "/api/battles/19" for ::1 at 2022-03-04 11:31:29 -0500
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"19"}
+  [1m[36mBattle Load (0.5ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."player_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (5.2ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.0ms)
+
+
+
+NoMethodError - undefined method `player_id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder__1240376067090730716_70247218077580'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mDungeon Load (0.7ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.4ms)
+  Rendered api/dungeons/show.json.jbuilder (5.2ms)
+Completed 200 OK in 34ms (Views: 11.9ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 11:38:39 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6HHxl5ZHtdMuJrMY7STvzw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 194ms (Views: 185.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/dungeons/12" for ::1 at 2022-03-04 11:38:39 -0500
+Started GET "/api/battles/19" for ::1 at 2022-03-04 11:38:39 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (7.6ms)
+Completed 200 OK in 38ms (Views: 16.6ms | ActiveRecord: 3.5ms)
+
+
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"19"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/controllers/api/battles_controller.rb:16:in `show'
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3567478766450924640)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeBattleTwo (20220304164153)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3567478766450924640)[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-03-04 11:50:43 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6.2/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+        bin/rails db:migrate RAILS_ENV=development:
+
+Started POST "/__better_errors/2dcab33ded9da177/variables" for ::1 at 2022-03-04 11:50:43 -0500
+Started GET "/" for ::1 at 2022-03-04 11:51:10 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6HHxl5ZHtdMuJrMY7STvzw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 178ms (Views: 171.9ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:51:10 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.7ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (5.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (4.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.4ms)
+  Rendered api/dungeons/index.json.jbuilder (65.5ms)
+Completed 200 OK in 75ms (Views: 68.8ms | ActiveRecord: 3.7ms)
+
+
+Started DELETE "/api/session" for ::1 at 2022-03-04 11:51:13 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6HHxl5ZHtdMuJrMY7STvzw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:60
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "fartttt"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/models/user.rb:60
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "HFT17Tucx77zu7iK0KjOVg"], ["updated_at", "2022-03-04 16:51:13.756330"], ["id", 19]]
+  ↳ app/models/user.rb:60
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:60
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.4ms)
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/users" for ::1 at 2022-03-04 11:51:21 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"MIKEMIKE", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "MIKEMIKE"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "MIKEMIKE"], ["password_digest", "$2a$12$HYmxIvgHRb4waTDOijEoU.G4MSijKpV12LAXsP0.kJ4WBGXiTdlAG"], ["session_token", "H4qDJ09KC3EX-1YvvmEPjg"], ["created_at", "2022-03-04 16:51:22.063247"], ["updated_at", "2022-03-04 16:51:22.063247"]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:60
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "MIKEMIKE"], ["id", 20], ["LIMIT", 1]]
+  ↳ app/models/user.rb:60
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "1wZ1BdjRijK9NbTcHiScpw"], ["updated_at", "2022-03-04 16:51:22.065985"], ["id", 20]]
+  ↳ app/models/user.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:60
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.0ms)
+Completed 200 OK in 217ms (Views: 11.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:51:22 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/index.json.jbuilder (38.5ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-03-04 11:51:28 -0500
+Started PATCH "/api/users/20" for ::1 at 2022-03-04 11:51:28 -0500
+Started POST "/api/battles" for ::1 at 2022-03-04 11:51:28 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entire_dungeon"=>{"name"=>"The Lebsack Room", "enemies"=>[{"name"=>"Omer", "type"=>"Mobile Gargoyle", "tagLine"=>"Override auxiliary firewall!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Max", "type"=>"Redundant Gargoyle", "tagLine"=>"Copy primary transmitter!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>{"name"=>"The Ryan Room", "enemies"=>[{"name"=>"Adolf", "type"=>"Sleek Gargoyle", "tagLine"=>"Compress digital pixel!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureB", "treasureB"], "leet"=>["fizbiz", "fizbiz"], "left"=>nil, "right"=>{"name"=>"The Stark Room", "enemies"=>["Empty"], "treasure"=>["treasureA"], "leet"=>["fibonocci", "is_prime?"], "left"=>nil, "right"=>nil}}, "right"=>{"name"=>"The Wunsch Room", "enemies"=>[{"name"=>"Jason", "type"=>"Open-source Gargoyle", "tagLine"=>"Calculate cross-platform port!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["Empty"], "leet"=>["fibonocci", "is_prime?"], "left"=>{"name"=>"The Wisoky Room", "enemies"=>["Empty"], "treasure"=>["treasureA"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}, "right"=>nil}}, "current_room"=>{"name"=>"The Lebsack Room", "enemies"=>[{"name"=>"Omer", "type"=>"Mobile Gargoyle", "tagLine"=>"Override auxiliary firewall!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Max", "type"=>"Redundant Gargoyle", "tagLine"=>"Copy primary transmitter!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["Empty"], "leet"=>["Empty"], "left"=>{"name"=>"The Ryan Room", "enemies"=>[{"name"=>"Adolf", "type"=>"Sleek Gargoyle", "tagLine"=>"Compress digital pixel!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureB", "treasureB"], "leet"=>["fizbiz", "fizbiz"], "left"=>nil, "right"=>{"name"=>"The Stark Room", "enemies"=>["Empty"], "treasure"=>["treasureA"], "leet"=>["fibonocci", "is_prime?"], "left"=>nil, "right"=>nil}}, "right"=>{"name"=>"The Wunsch Room", "enemies"=>[{"name"=>"Jason", "type"=>"Open-source Gargoyle", "tagLine"=>"Calculate cross-platform port!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["Empty"], "leet"=>["fibonocci", "is_prime?"], "left"=>{"name"=>"The Wisoky Room", "enemies"=>["Empty"], "treasure"=>["treasureA"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}, "right"=>nil}}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1wZ1BdjRijK9NbTcHiScpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mDungeon Create (1.7ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "current_room", "created_at", "updated_at", "entire_dungeon", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["player_id", 20], ["room_amount", 5], ["current_room", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Lebsack Room\nenemies:\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Omer\n  type: Mobile Gargoyle\n  tagLine: Override auxiliary firewall!\n  hitPoints: 1\n  attack: 1\n  defense: 1\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Max\n  type: Redundant Gargoyle\n  tagLine: Copy primary transmitter!\n  hitPoints: 1\n  attack: 1\n  defense: 1\ntreasure:\n- Empty\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Ryan Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Adolf\n    type: Sleek Gargoyle\n    tagLine: Compress digital pixel!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureB\n  - treasureB\n  leet:\n  - fizbiz\n  - fizbiz\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Stark Room\n    enemies:\n    - Empty\n    treasure:\n    - treasureA\n    leet:\n    - fibonocci\n    - is_prime?\n    left: \n    right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Wunsch Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Jason\n    type: Open-source Gargoyle\n    tagLine: Calculate cross-platform port!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - Empty\n  leet:\n  - fibonocci\n  - is_prime?\n  left: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Wisoky Room\n    enemies:\n    - Empty\n    treasure:\n    - treasureA\n    leet:\n    - Empty\n    left: \n    right: \n  right: \n"], ["created_at", "2022-03-04 16:51:28.824962"], ["updated_at", "2022-03-04 16:51:28.824962"], ["entire_dungeon", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Lebsack Room\nenemies:\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Omer\n  type: Mobile Gargoyle\n  tagLine: Override auxiliary firewall!\n  hitPoints: 1\n  attack: 1\n  defense: 1\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Max\n  type: Redundant Gargoyle\n  tagLine: Copy primary transmitter!\n  hitPoints: 1\n  attack: 1\n  defense: 1\ntreasure:\n- Empty\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Ryan Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Adolf\n    type: Sleek Gargoyle\n    tagLine: Compress digital pixel!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureB\n  - treasureB\n  leet:\n  - fizbiz\n  - fizbiz\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Stark Room\n    enemies:\n    - Empty\n    treasure:\n    - treasureA\n    leet:\n    - fibonocci\n    - is_prime?\n    left: \n    right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Wunsch Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Jason\n    type: Open-source Gargoyle\n    tagLine: Calculate cross-platform port!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - Empty\n  leet:\n  - fibonocci\n  - is_prime?\n  left: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Wisoky Room\n    enemies:\n    - Empty\n    treasure:\n    - treasureA\n    leet:\n    - Empty\n    left: \n    right: \n  right: \n"], ["name", "The Great Serval Dungeon"]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+Processing by Api::UsersController#update as JSON
+  Parameters: {"id"=>"20", "hasDungeon"=>true, "user"=>{"id"=>"20", "hasDungeon"=>true}}
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:27
+Unpermitted parameter: :id
+  Rendering api/dungeons/show.json.jbuilder
+  [1m[35m (2.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (4.7ms)
+Completed 200 OK in 38ms (Views: 11.4ms | ActiveRecord: 7.7ms)
+
+
+  [1m[36mUser Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "MIKEMIKE"], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "hasDungeon" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hasDungeon", true], ["updated_at", "2022-03-04 16:51:28.857104"], ["id", 20]]
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.4ms)
+Completed 200 OK in 30ms (Views: 7.7ms | ActiveRecord: 12.1ms)
+
+
+Processing by Api::BattlesController#create as JSON
+  Parameters: {"battle"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1wZ1BdjRijK9NbTcHiScpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[36mBattle Create (0.4ms)[0m  [1m[32mINSERT INTO "battles" ("player_id") VALUES ($1) RETURNING "player_id"[0m  [["player_id", 20]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/battles_controller.rb:8
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/_battle.json.jbuilder (0.3ms)
+  Rendered api/battles/show.json.jbuilder (2.0ms)
+Completed 200 OK in 17ms (Views: 7.6ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 11:51:31 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1wZ1BdjRijK9NbTcHiScpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 115ms (Views: 115.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:51:32 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.6ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/index.json.jbuilder (47.1ms)
+Completed 200 OK in 55ms (Views: 54.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/dungeons/13" for ::1 at 2022-03-04 11:51:35 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"13"}
+Started GET "/api/battles/20" for ::1 at 2022-03-04 11:51:35 -0500
+  [1m[36mDungeon Load (1.1ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"20"}
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.4ms)
+  Rendered api/dungeons/show.json.jbuilder (5.5ms)
+Completed 200 OK in 19ms (Views: 14.8ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mBattle Load (1.3ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."player_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (3.6ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.3ms)
+
+
+
+NoMethodError - undefined method `player_id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder__1240376067090730716_70247290834400'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 11:53:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1wZ1BdjRijK9NbTcHiScpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 114ms (Views: 112.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:53:08 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.6ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/index.json.jbuilder (43.2ms)
+Completed 200 OK in 50ms (Views: 48.7ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2022-03-04 11:53:10 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1wZ1BdjRijK9NbTcHiScpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:60
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "MIKEMIKE"], ["id", 20], ["LIMIT", 1]]
+  ↳ app/models/user.rb:60
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "dXQmaEFhUFPu6kijQsTKpg"], ["updated_at", "2022-03-04 16:53:10.756398"], ["id", 20]]
+  ↳ app/models/user.rb:60
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:60
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.6ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/users" for ::1 at 2022-03-04 11:53:17 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"CRAAAAAAB", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CRAAAAAAB"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "CRAAAAAAB"], ["password_digest", "$2a$12$tHBmQxp2wq0UagVxw6DWhO1fIoxQrAmDEeNvJ2zGCR89N09qwuc4S"], ["session_token", "zy_2TpxYOjhChIn6r9nGLA"], ["created_at", "2022-03-04 16:53:17.521768"], ["updated_at", "2022-03-04 16:53:17.521768"]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:60
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CRAAAAAAB"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:60
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "uAWTKNIbcE7fOoGeWz1lbg"], ["updated_at", "2022-03-04 16:53:17.524020"], ["id", 21]]
+  ↳ app/models/user.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:60
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.1ms)
+Completed 200 OK in 222ms (Views: 5.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:53:17 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.5ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/index.json.jbuilder (50.9ms)
+Completed 200 OK in 58ms (Views: 56.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-03-04 11:53:21 -0500
+Started PATCH "/api/users/21" for ::1 at 2022-03-04 11:53:21 -0500
+Processing by Api::UsersController#update as JSON
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"id"=>"21", "hasDungeon"=>true, "user"=>{"id"=>"21", "hasDungeon"=>true}}
+Started POST "/api/battles" for ::1 at 2022-03-04 11:53:21 -0500
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entire_dungeon"=>{"name"=>"The Auer Room", "enemies"=>[{"name"=>"Cecelia", "type"=>"Gorgeous Gargoyle", "tagLine"=>"Back up redundant feed!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureB"], "leet"=>["Empty"], "left"=>{"name"=>"The Mueller Room", "enemies"=>[{"name"=>"Rosanna", "type"=>"Primary Gargoyle", "tagLine"=>"Index digital monitor!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureC", "treasureD"], "leet"=>["two_sum"], "left"=>{"name"=>"The Barton Room", "enemies"=>[{"name"=>"Hubert", "type"=>"Unbranded Gargoyle", "tagLine"=>"Synthesize primary driver!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["treasureB"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}, "right"=>nil}, "right"=>{"name"=>"The Sawayn Room", "enemies"=>["Empty"], "treasure"=>["treasureB"], "leet"=>["fizbiz"], "left"=>nil, "right"=>{"name"=>"The Effertz Room", "enemies"=>[{"name"=>"Dora", "type"=>"Auxiliary Gargoyle", "tagLine"=>"Reboot multi-byte interface!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}, {"name"=>"Jolie", "type"=>"Tasty Gargoyle", "tagLine"=>"Navigate online protocol!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["treasureB"], "leet"=>["fizbiz"], "left"=>nil, "right"=>nil}}}, "current_room"=>{"name"=>"The Auer Room", "enemies"=>[{"name"=>"Cecelia", "type"=>"Gorgeous Gargoyle", "tagLine"=>"Back up redundant feed!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureB"], "leet"=>["Empty"], "left"=>{"name"=>"The Mueller Room", "enemies"=>[{"name"=>"Rosanna", "type"=>"Primary Gargoyle", "tagLine"=>"Index digital monitor!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureC", "treasureD"], "leet"=>["two_sum"], "left"=>{"name"=>"The Barton Room", "enemies"=>[{"name"=>"Hubert", "type"=>"Unbranded Gargoyle", "tagLine"=>"Synthesize primary driver!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["treasureB"], "leet"=>["Empty"], "left"=>nil, "right"=>nil}, "right"=>nil}, "right"=>{"name"=>"The Sawayn Room", "enemies"=>["Empty"], "treasure"=>["treasureB"], "leet"=>["fizbiz"], "left"=>nil, "right"=>{"name"=>"The Effertz Room", "enemies"=>[{"name"=>"Dora", "type"=>"Auxiliary Gargoyle", "tagLine"=>"Reboot multi-byte interface!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}, {"name"=>"Jolie", "type"=>"Tasty Gargoyle", "tagLine"=>"Navigate online protocol!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["treasureB"], "leet"=>["fizbiz"], "left"=>nil, "right"=>nil}}}}}
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:27
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uAWTKNIbcE7fOoGeWz1lbg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Processing by Api::BattlesController#create as JSON
+  Parameters: {"battle"=>{}}
+Unpermitted parameter: :id
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CRAAAAAAB"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uAWTKNIbcE7fOoGeWz1lbg"], ["LIMIT", 1]]
+  [1m[36mDungeon Create (1.1ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "current_room", "created_at", "updated_at", "entire_dungeon", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["player_id", 21], ["room_amount", 5], ["current_room", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Auer Room\nenemies:\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Cecelia\n  type: Gorgeous Gargoyle\n  tagLine: Back up redundant feed!\n  hitPoints: 1\n  attack: 1\n  defense: 1\ntreasure:\n- treasureB\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Mueller Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Rosanna\n    type: Primary Gargoyle\n    tagLine: Index digital monitor!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureC\n  - treasureD\n  leet:\n  - two_sum\n  left: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Barton Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Hubert\n      type: Unbranded Gargoyle\n      tagLine: Synthesize primary driver!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - treasureB\n    leet:\n    - Empty\n    left: \n    right: \n  right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Sawayn Room\n  enemies:\n  - Empty\n  treasure:\n  - treasureB\n  leet:\n  - fizbiz\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Effertz Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Dora\n      type: Auxiliary Gargoyle\n      tagLine: Reboot multi-byte interface!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Jolie\n      type: Tasty Gargoyle\n      tagLine: Navigate online protocol!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - treasureB\n    leet:\n    - fizbiz\n    left: \n    right: \n"], ["created_at", "2022-03-04 16:53:21.904012"], ["updated_at", "2022-03-04 16:53:21.904012"], ["entire_dungeon", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Auer Room\nenemies:\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Cecelia\n  type: Gorgeous Gargoyle\n  tagLine: Back up redundant feed!\n  hitPoints: 1\n  attack: 1\n  defense: 1\ntreasure:\n- treasureB\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Mueller Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Rosanna\n    type: Primary Gargoyle\n    tagLine: Index digital monitor!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureC\n  - treasureD\n  leet:\n  - two_sum\n  left: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Barton Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Hubert\n      type: Unbranded Gargoyle\n      tagLine: Synthesize primary driver!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - treasureB\n    leet:\n    - Empty\n    left: \n    right: \n  right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Sawayn Room\n  enemies:\n  - Empty\n  treasure:\n  - treasureB\n  leet:\n  - fizbiz\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Effertz Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Dora\n      type: Auxiliary Gargoyle\n      tagLine: Reboot multi-byte interface!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Jolie\n      type: Tasty Gargoyle\n      tagLine: Navigate online protocol!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - treasureB\n    leet:\n    - fizbiz\n    left: \n    right: \n"], ["name", "The Common Moose Dungeon"]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "hasDungeon" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hasDungeon", true], ["updated_at", "2022-03-04 16:53:21.911527"], ["id", 21]]
+  ↳ app/controllers/api/users_controller.rb:29
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/battles_controller.rb:8
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (4.9ms)
+Completed 200 OK in 36ms (Views: 11.8ms | ActiveRecord: 4.3ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  [1m[36mBattle Create (1.1ms)[0m  [1m[32mINSERT INTO "battles" ("player_id") VALUES ($1) RETURNING "player_id"[0m  [["player_id", 21]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (2.2ms)
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 48ms (Views: 10.1ms | ActiveRecord: 6.9ms)
+
+
+  ↳ app/controllers/api/battles_controller.rb:8
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/_battle.json.jbuilder (0.3ms)
+  Rendered api/battles/show.json.jbuilder (1.5ms)
+Completed 200 OK in 48ms (Views: 7.4ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 11:54:28 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uAWTKNIbcE7fOoGeWz1lbg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 135ms (Views: 131.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:54:29 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.5ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.5ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/index.json.jbuilder (71.2ms)
+Completed 200 OK in 81ms (Views: 74.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/dungeons/14" for ::1 at 2022-03-04 11:54:31 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"14"}
+  [1m[36mDungeon Load (1.2ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+Started GET "/api/battles/21" for ::1 at 2022-03-04 11:54:31 -0500
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.6ms)
+  Rendered api/dungeons/show.json.jbuilder (5.7ms)
+Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 1.2ms)
+
+
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"21"}
+  [1m[36mBattle Load (0.2ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (4.0ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.1ms)
+
+
+
+NoMethodError - undefined method `player_id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder__1240376067090730716_70247291013760'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 11:56:11 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uAWTKNIbcE7fOoGeWz1lbg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 2852ms (Views: 2847.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:56:14 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.6ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.5ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.6ms)
+  Rendered api/dungeons/index.json.jbuilder (75.6ms)
+Completed 200 OK in 87ms (Views: 77.7ms | ActiveRecord: 3.7ms)
+
+
+Started DELETE "/api/session" for ::1 at 2022-03-04 11:56:18 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uAWTKNIbcE7fOoGeWz1lbg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:60
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CRAAAAAAB"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:60
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "VjHD93cccsIyfI6Mrf6MPQ"], ["updated_at", "2022-03-04 16:56:18.043478"], ["id", 21]]
+  ↳ app/models/user.rb:60
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:60
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.5ms)
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/users" for ::1 at 2022-03-04 11:56:23 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"MAMXMAMXM", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "MAMXMAMXM"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "MAMXMAMXM"], ["password_digest", "$2a$12$5zT4RsxZbyZSRHNWt8bq1e3hfv04jVJ5GJsNcjDOWOUh6HQmTHXHm"], ["session_token", "55RTyTCYX0R81_R4tLRzqA"], ["created_at", "2022-03-04 16:56:23.531876"], ["updated_at", "2022-03-04 16:56:23.531876"]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:60
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "MAMXMAMXM"], ["id", 22], ["LIMIT", 1]]
+  ↳ app/models/user.rb:60
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["updated_at", "2022-03-04 16:56:23.535112"], ["id", 22]]
+  ↳ app/models/user.rb:60
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:60
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.0ms)
+Completed 200 OK in 218ms (Views: 7.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:56:23 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.3ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.5ms)
+  Rendered api/dungeons/index.json.jbuilder (52.6ms)
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-03-04 11:56:32 -0500
+Started PATCH "/api/users/22" for ::1 at 2022-03-04 11:56:32 -0500
+Started POST "/api/battles" for ::1 at 2022-03-04 11:56:32 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entire_dungeon"=>{"name"=>"The Leannon Room", "enemies"=>[{"name"=>"Pinkie", "type"=>"Redundant Gargoyle", "tagLine"=>"Back up virtual microchip!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Stanford", "type"=>"Tasty Gargoyle", "tagLine"=>"Synthesize online driver!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureD"], "leet"=>["Empty"], "left"=>{"name"=>"The Homenick Room", "enemies"=>[{"name"=>"Cordia", "type"=>"Wireless Gargoyle", "tagLine"=>"Compress back-end interface!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Era", "type"=>"Bluetooth Gargoyle", "tagLine"=>"Input open-source matrix!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureC"], "leet"=>["is_prime?"], "left"=>nil, "right"=>{"name"=>"The Bosco Room", "enemies"=>[{"name"=>"Anibal", "type"=>"Handmade Gargoyle", "tagLine"=>"Calculate neural system!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}, {"name"=>"Lorna", "type"=>"Mobile Gargoyle", "tagLine"=>"Hack mobile firewall!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["Empty"], "leet"=>["fizbiz", "is_prime?"], "left"=>nil, "right"=>nil}}, "right"=>{"name"=>"The Murray Room", "enemies"=>[{"name"=>"Ashleigh", "type"=>"Auxiliary Gargoyle", "tagLine"=>"Generate neural card!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Tianna", "type"=>"Solid state Gargoyle", "tagLine"=>"Transmit online monitor!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureA"], "leet"=>["fizbiz"], "left"=>nil, "right"=>{"name"=>"The Crist Room", "enemies"=>[{"name"=>"Arlie", "type"=>"Small Gargoyle", "tagLine"=>"Reboot wireless hard drive!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}, {"name"=>"Rebecca", "type"=>"Handcrafted Gargoyle", "tagLine"=>"Synthesize multi-byte bandwidth!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["treasureB", "treasureA"], "leet"=>["fibonocci"], "left"=>nil, "right"=>nil}}}, "current_room"=>{"name"=>"The Leannon Room", "enemies"=>[{"name"=>"Pinkie", "type"=>"Redundant Gargoyle", "tagLine"=>"Back up virtual microchip!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Stanford", "type"=>"Tasty Gargoyle", "tagLine"=>"Synthesize online driver!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureD"], "leet"=>["Empty"], "left"=>{"name"=>"The Homenick Room", "enemies"=>[{"name"=>"Cordia", "type"=>"Wireless Gargoyle", "tagLine"=>"Compress back-end interface!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Era", "type"=>"Bluetooth Gargoyle", "tagLine"=>"Input open-source matrix!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureC"], "leet"=>["is_prime?"], "left"=>nil, "right"=>{"name"=>"The Bosco Room", "enemies"=>[{"name"=>"Anibal", "type"=>"Handmade Gargoyle", "tagLine"=>"Calculate neural system!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}, {"name"=>"Lorna", "type"=>"Mobile Gargoyle", "tagLine"=>"Hack mobile firewall!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["Empty"], "leet"=>["fizbiz", "is_prime?"], "left"=>nil, "right"=>nil}}, "right"=>{"name"=>"The Murray Room", "enemies"=>[{"name"=>"Ashleigh", "type"=>"Auxiliary Gargoyle", "tagLine"=>"Generate neural card!", "hitPoints"=>1, "attack"=>1, "defense"=>1}, {"name"=>"Tianna", "type"=>"Solid state Gargoyle", "tagLine"=>"Transmit online monitor!", "hitPoints"=>1, "attack"=>1, "defense"=>1}], "treasure"=>["treasureA"], "leet"=>["fizbiz"], "left"=>nil, "right"=>{"name"=>"The Crist Room", "enemies"=>[{"name"=>"Arlie", "type"=>"Small Gargoyle", "tagLine"=>"Reboot wireless hard drive!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}, {"name"=>"Rebecca", "type"=>"Handcrafted Gargoyle", "tagLine"=>"Synthesize multi-byte bandwidth!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["treasureB", "treasureA"], "leet"=>["fibonocci"], "left"=>nil, "right"=>nil}}}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Processing by Api::UsersController#update as JSON
+  Parameters: {"id"=>"22", "hasDungeon"=>true, "user"=>{"id"=>"22", "hasDungeon"=>true}}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:27
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "MAMXMAMXM"], ["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "hasDungeon" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hasDungeon", true], ["updated_at", "2022-03-04 16:56:32.260101"], ["id", 22]]
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.5ms)
+Completed 200 OK in 49ms (Views: 29.4ms | ActiveRecord: 11.1ms)
+
+
+  [1m[35m (7.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mDungeon Create (1.1ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "current_room", "created_at", "updated_at", "entire_dungeon", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["player_id", 22], ["room_amount", 5], ["current_room", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Leannon Room\nenemies:\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Pinkie\n  type: Redundant Gargoyle\n  tagLine: Back up virtual microchip!\n  hitPoints: 1\n  attack: 1\n  defense: 1\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Stanford\n  type: Tasty Gargoyle\n  tagLine: Synthesize online driver!\n  hitPoints: 1\n  attack: 1\n  defense: 1\ntreasure:\n- treasureD\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Homenick Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Cordia\n    type: Wireless Gargoyle\n    tagLine: Compress back-end interface!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Era\n    type: Bluetooth Gargoyle\n    tagLine: Input open-source matrix!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureC\n  leet:\n  - is_prime?\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Bosco Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Anibal\n      type: Handmade Gargoyle\n      tagLine: Calculate neural system!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Lorna\n      type: Mobile Gargoyle\n      tagLine: Hack mobile firewall!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - Empty\n    leet:\n    - fizbiz\n    - is_prime?\n    left: \n    right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Murray Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Ashleigh\n    type: Auxiliary Gargoyle\n    tagLine: Generate neural card!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Tianna\n    type: Solid state Gargoyle\n    tagLine: Transmit online monitor!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureA\n  leet:\n  - fizbiz\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Crist Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Arlie\n      type: Small Gargoyle\n      tagLine: Reboot wireless hard drive!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Rebecca\n      type: Handcrafted Gargoyle\n      tagLine: Synthesize multi-byte bandwidth!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - treasureB\n    - treasureA\n    leet:\n    - fibonocci\n    left: \n    right: \n"], ["created_at", "2022-03-04 16:56:32.609699"], ["updated_at", "2022-03-04 16:56:32.609699"], ["entire_dungeon", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Leannon Room\nenemies:\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Pinkie\n  type: Redundant Gargoyle\n  tagLine: Back up virtual microchip!\n  hitPoints: 1\n  attack: 1\n  defense: 1\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Stanford\n  type: Tasty Gargoyle\n  tagLine: Synthesize online driver!\n  hitPoints: 1\n  attack: 1\n  defense: 1\ntreasure:\n- treasureD\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Homenick Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Cordia\n    type: Wireless Gargoyle\n    tagLine: Compress back-end interface!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Era\n    type: Bluetooth Gargoyle\n    tagLine: Input open-source matrix!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureC\n  leet:\n  - is_prime?\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Bosco Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Anibal\n      type: Handmade Gargoyle\n      tagLine: Calculate neural system!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Lorna\n      type: Mobile Gargoyle\n      tagLine: Hack mobile firewall!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - Empty\n    leet:\n    - fizbiz\n    - is_prime?\n    left: \n    right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Murray Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Ashleigh\n    type: Auxiliary Gargoyle\n    tagLine: Generate neural card!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Tianna\n    type: Solid state Gargoyle\n    tagLine: Transmit online monitor!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n  treasure:\n  - treasureA\n  leet:\n  - fizbiz\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The Crist Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Arlie\n      type: Small Gargoyle\n      tagLine: Reboot wireless hard drive!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Rebecca\n      type: Handcrafted Gargoyle\n      tagLine: Synthesize multi-byte bandwidth!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - treasureB\n    - treasureA\n    leet:\n    - fibonocci\n    left: \n    right: \n"], ["name", "The Greater Jackal Dungeon"]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (6.1ms)
+Completed 200 OK in 412ms (Views: 12.0ms | ActiveRecord: 11.5ms)
+
+
+Processing by Api::BattlesController#create as JSON
+  Parameters: {"battle"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[36mBattle Create (1.0ms)[0m  [1m[32mINSERT INTO "battles" ("player_id") VALUES ($1) RETURNING "player_id"[0m  [["player_id", 22]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/battles_controller.rb:8
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/_battle.json.jbuilder (0.4ms)
+  Rendered api/battles/show.json.jbuilder (2.0ms)
+Completed 200 OK in 21ms (Views: 9.7ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 11:56:57 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 137ms (Views: 136.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 11:56:57 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (1.1ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.0ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (4.0ms)
+  Rendered api/dungeons/index.json.jbuilder (69.9ms)
+Completed 200 OK in 78ms (Views: 76.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 11:56:59 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+Started GET "/api/battles/22" for ::1 at 2022-03-04 11:56:59 -0500
+  [1m[36mDungeon Load (0.8ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+  Rendering api/dungeons/show.json.jbuilder
+  [1m[36mBattle Load (5.4ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (9.0ms)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.8ms)
+
+
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (5.9ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 5.4ms)
+
+
+
+NoMethodError - undefined method `player_id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349887456600'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 11:57:34 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 2175ms (Views: 2174.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 11:58:13 -0500
+Started GET "/api/battles/22" for ::1 at 2022-03-04 11:58:13 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+  [1m[36mDungeon Load (1.5ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  [1m[36mBattle Load (11.8ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.8ms)
+  Rendered api/dungeons/show.json.jbuilder (12.0ms)
+Completed 200 OK in 30ms (Views: 26.9ms | ActiveRecord: 1.5ms)
+
+
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (5.2ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 11.8ms)
+
+
+
+NoMethodError - undefined method `player_id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349903499100'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 12:00:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 116ms (Views: 115.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:00:19 -0500
+Started GET "/api/battles/22" for ::1 at 2022-03-04 12:00:19 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+  [1m[36mDungeon Load (0.8ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  [1m[36mBattle Load (12.2ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (8.5ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.8ms)
+
+
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (4.3ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 12.2ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349912478420'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 12:01:39 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 118ms (Views: 114.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:01:40 -0500
+Started GET "/api/battles/22" for ::1 at 2022-03-04 12:01:40 -0500
+
+LoadError - Unable to autoload constant Api::DungeonsController, expected /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/controllers/api/dungeons_controller.rb to define it:
+
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+  [1m[36mBattle Load (0.3ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (6.1ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 3.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349913528460'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 12:02:01 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 148ms (Views: 147.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:02:02 -0500
+Started GET "/api/battles/22" for ::1 at 2022-03-04 12:02:02 -0500
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+
+LoadError - Unable to autoload constant Api::DungeonsController, expected /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/controllers/api/dungeons_controller.rb to define it:
+
+  [1m[36mBattle Load (0.2ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (4.0ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.6ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349887233180'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 12:04:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 147ms (Views: 147.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:04:20 -0500
+Started GET "/api/battles/22" for ::1 at 2022-03-04 12:04:20 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+  [1m[36mBattle Load (0.4ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (4.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349822088660'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.7ms)
+  Rendered api/dungeons/show.json.jbuilder (8.7ms)
+Completed 200 OK in 69ms (Views: 15.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 12:08:14 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 174ms (Views: 173.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/battles/22" for ::1 at 2022-03-04 12:08:15 -0500
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:08:15 -0500
+
+LoadError - Unable to autoload constant Api::DungeonsController, expected /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/controllers/api/dungeons_controller.rb to define it:
+
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+  [1m[36mBattle Load (0.2ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (5.2ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349906035020'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 12:09:10 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 2140ms (Views: 2139.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:09:13 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+  [1m[36mDungeon Load (0.3ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.2ms)
+  Rendered api/dungeons/show.json.jbuilder (5.4ms)
+Completed 200 OK in 32ms (Views: 10.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 12:10:04 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 2102ms (Views: 2101.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:10:06 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+  [1m[36mDungeon Load (0.5ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (5.1ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 12:10:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 2135ms (Views: 2134.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:10:20 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+Started GET "/api/battles/22" for ::1 at 2022-03-04 12:10:20 -0500
+  [1m[36mDungeon Load (0.7ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"22"}
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.5ms)
+  Rendered api/dungeons/show.json.jbuilder (8.0ms)
+  [1m[36mBattle Load (1.9ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.7ms)
+
+
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (3.1ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.9ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___893424040534791717_70349827257660'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 12:17:09 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 143ms (Views: 141.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 12:17:10 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.8ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.6ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.5ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.4ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.1ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.9ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.8ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.2ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (2.7ms)
+  Rendered api/dungeons/_dungeon.json.jbuilder (3.7ms)
+  Rendered api/dungeons/index.json.jbuilder (63.8ms)
+Completed 200 OK in 71ms (Views: 69.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/dungeons/15" for ::1 at 2022-03-04 12:17:11 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"15"}
+  [1m[36mDungeon Load (0.5ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (6.8ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (45.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "haunted_woods_traversal_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (73.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "haunted_woods_traversal_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (147.2ms)[0m  [1m[35mCREATE DATABASE "haunted_woods_traversal_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (80.8ms)[0m  [1m[35mCREATE DATABASE "haunted_woods_traversal_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "battles" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "battles" ("id" bigserial primary key, "enemies" text[] DEFAULT '{}' NOT NULL, "game_text" character varying, "player_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "dungeons" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "dungeons" ("id" bigserial primary key, "player_id" integer NOT NULL, "room_amount" integer DEFAULT 3 NOT NULL, "current_room" text, "visited_rooms" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "entire_dungeon" text, "name" character varying)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:35
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "level" integer DEFAULT 1 NOT NULL, "attack" integer DEFAULT 10 NOT NULL, "defense" integer DEFAULT 10 NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "hasDungeon" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:35
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:35
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220303202213)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220224180548),
+(20220301173216),
+(20220228205655),
+(20220222173423),
+(20220224180911),
+(20220224193827),
+(20220224205033),
+(20220228230040),
+(20220201214020),
+(20220303201442),
+(20220228192914);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-04 17:21:46.297812"], ["updated_at", "2022-03-04 17:21:46.297812"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "battles" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "battles" ("id" bigserial primary key, "enemies" text[] DEFAULT '{}' NOT NULL, "game_text" character varying, "player_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "dungeons" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "dungeons" ("id" bigserial primary key, "player_id" integer NOT NULL, "room_amount" integer DEFAULT 3 NOT NULL, "current_room" text, "visited_rooms" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "entire_dungeon" text, "name" character varying)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:35
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "level" integer DEFAULT 1 NOT NULL, "attack" integer DEFAULT 10 NOT NULL, "defense" integer DEFAULT 10 NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "hasDungeon" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:35
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:35
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220303202213)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220224180548),
+(20220301173216),
+(20220228205655),
+(20220222173423),
+(20220224180911),
+(20220224193827),
+(20220224205033),
+(20220228230040),
+(20220201214020),
+(20220303201442),
+(20220228192914);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-04 17:21:46.388567"], ["updated_at", "2022-03-04 17:21:46.388567"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-03-04 17:21:46.395280"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-03-04 13:32:05 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthewswedin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_nPneSEI2zTwC6OuRbDRsQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered static_pages/root.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 4740ms (Views: 4736.5ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/api/users" for ::1 at 2022-03-04 13:32:19 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"FUCKYOU", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "FUCKYOU"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "FUCKYOU"], ["password_digest", "$2a$12$2RwFcvJAz9yDjM0hZsNpiO6fUYD3C4GVu.Y6ZV2WlLomv/37/vfam"], ["session_token", "caYAdAx-yVIM3FlfS0CCkw"], ["created_at", "2022-03-04 18:32:19.677072"], ["updated_at", "2022-03-04 18:32:19.677072"]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:60
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "FUCKYOU"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:60
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["updated_at", "2022-03-04 18:32:19.681214"], ["id", 1]]
+  ↳ app/models/user.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:60
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.8ms)
+Completed 200 OK in 231ms (Views: 6.5ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 13:32:19 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (1.4ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/index.json.jbuilder (5.7ms)
+Completed 200 OK in 17ms (Views: 8.5ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/api/dungeons" for ::1 at 2022-03-04 13:32:23 -0500
+Started PATCH "/api/users/1" for ::1 at 2022-03-04 13:32:23 -0500
+Started POST "/api/battles" for ::1 at 2022-03-04 13:32:23 -0500
+Processing by Api::DungeonsController#create as JSON
+  Parameters: {"dungeon"=>{"room_amount"=>5, "entire_dungeon"=>{"name"=>"The Parker Room", "enemies"=>["Empty"], "treasure"=>["treasureD"], "leet"=>["Empty"], "left"=>{"name"=>"The Robel Room", "enemies"=>["Empty"], "treasure"=>["treasureC"], "leet"=>["fibonocci", "fibonocci"], "left"=>{"name"=>"The O'Connell Room", "enemies"=>["Empty"], "treasure"=>["treasureA", "treasureD"], "leet"=>["fibonocci"], "left"=>nil, "right"=>nil}, "right"=>nil}, "right"=>{"name"=>"The Bernier Room", "enemies"=>["Empty"], "treasure"=>["treasureC"], "leet"=>["Empty"], "left"=>nil, "right"=>{"name"=>"The McGlynn Room", "enemies"=>[{"name"=>"Adela", "type"=>"Primary Gargoyle", "tagLine"=>"Override wireless hard drive!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["Empty"], "leet"=>["fizbiz", "two_sum"], "left"=>nil, "right"=>nil}}}, "current_room"=>{"name"=>"The Parker Room", "enemies"=>["Empty"], "treasure"=>["treasureD"], "leet"=>["Empty"], "left"=>{"name"=>"The Robel Room", "enemies"=>["Empty"], "treasure"=>["treasureC"], "leet"=>["fibonocci", "fibonocci"], "left"=>{"name"=>"The O'Connell Room", "enemies"=>["Empty"], "treasure"=>["treasureA", "treasureD"], "leet"=>["fibonocci"], "left"=>nil, "right"=>nil}, "right"=>nil}, "right"=>{"name"=>"The Bernier Room", "enemies"=>["Empty"], "treasure"=>["treasureC"], "leet"=>["Empty"], "left"=>nil, "right"=>{"name"=>"The McGlynn Room", "enemies"=>[{"name"=>"Adela", "type"=>"Primary Gargoyle", "tagLine"=>"Override wireless hard drive!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["Empty"], "leet"=>["fizbiz", "two_sum"], "left"=>nil, "right"=>nil}}}}}
+Processing by Api::UsersController#update as JSON
+  Parameters: {"id"=>"1", "hasDungeon"=>true, "user"=>{"id"=>"1", "hasDungeon"=>true}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Unpermitted parameter: :id
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "FUCKYOU"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "hasDungeon" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hasDungeon", true], ["updated_at", "2022-03-04 18:32:23.912314"], ["id", 1]]
+  ↳ app/controllers/api/users_controller.rb:29
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:29
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.4ms)
+Completed 200 OK in 37ms (Views: 6.8ms | ActiveRecord: 2.9ms)
+
+
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[36mDungeon Create (0.7ms)[0m  [1m[32mINSERT INTO "dungeons" ("player_id", "room_amount", "current_room", "created_at", "updated_at", "entire_dungeon", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["player_id", 1], ["room_amount", 5], ["current_room", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Parker Room\nenemies:\n- Empty\ntreasure:\n- treasureD\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Robel Room\n  enemies:\n  - Empty\n  treasure:\n  - treasureC\n  leet:\n  - fibonocci\n  - fibonocci\n  left: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The O'Connell Room\n    enemies:\n    - Empty\n    treasure:\n    - treasureA\n    - treasureD\n    leet:\n    - fibonocci\n    left: \n    right: \n  right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Bernier Room\n  enemies:\n  - Empty\n  treasure:\n  - treasureC\n  leet:\n  - Empty\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The McGlynn Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Adela\n      type: Primary Gargoyle\n      tagLine: Override wireless hard drive!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - Empty\n    leet:\n    - fizbiz\n    - two_sum\n    left: \n    right: \n"], ["created_at", "2022-03-04 18:32:24.184481"], ["updated_at", "2022-03-04 18:32:24.184481"], ["entire_dungeon", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Parker Room\nenemies:\n- Empty\ntreasure:\n- treasureD\nleet:\n- Empty\nleft: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Robel Room\n  enemies:\n  - Empty\n  treasure:\n  - treasureC\n  leet:\n  - fibonocci\n  - fibonocci\n  left: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The O'Connell Room\n    enemies:\n    - Empty\n    treasure:\n    - treasureA\n    - treasureD\n    leet:\n    - fibonocci\n    left: \n    right: \n  right: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The Bernier Room\n  enemies:\n  - Empty\n  treasure:\n  - treasureC\n  leet:\n  - Empty\n  left: \n  right: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: The McGlynn Room\n    enemies:\n    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n      name: Adela\n      type: Primary Gargoyle\n      tagLine: Override wireless hard drive!\n      hitPoints: 1\n      attack: 1\n      defense: 1\n      level: 1\n    treasure:\n    - Empty\n    leet:\n    - fizbiz\n    - two_sum\n    left: \n    right: \n"], ["name", "The Common Cricket Dungeon"]]
+  ↳ app/controllers/api/dungeons_controller.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:11
+Processing by Api::BattlesController#create as JSON
+  Parameters: {"battle"=>{}}
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.2ms)
+  Rendered api/dungeons/show.json.jbuilder (5.4ms)
+Completed 200 OK in 322ms (Views: 11.1ms | ActiveRecord: 11.9ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[36mBattle Create (0.9ms)[0m  [1m[32mINSERT INTO "battles" ("player_id") VALUES ($1) RETURNING "id"[0m  [["player_id", 1]]
+  ↳ app/controllers/api/battles_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/battles_controller.rb:8
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/_battle.json.jbuilder (0.2ms)
+  Rendered api/battles/show.json.jbuilder (1.2ms)
+Completed 200 OK in 21ms (Views: 6.4ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 13:32:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 111ms (Views: 110.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons" for ::1 at 2022-03-04 13:32:49 -0500
+Processing by Api::DungeonsController#index as JSON
+  Rendering api/dungeons/index.json.jbuilder
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT "dungeons".* FROM "dungeons"[0m
+  ↳ app/views/api/dungeons/index.json.jbuilder:1
+  Rendered api/dungeons/_dungeon.json.jbuilder (1.8ms)
+  Rendered api/dungeons/index.json.jbuilder (4.5ms)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/dungeons/1" for ::1 at 2022-03-04 13:32:50 -0500
+Started GET "/api/battles/undefined" for ::1 at 2022-03-04 13:32:50 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"1"}
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[36mDungeon Load (1.1ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  [1m[36mBattle Load (2.2ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."player_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering api/dungeons/show.json.jbuilder
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/dungeons/show.json.jbuilder (9.0ms)
+Completed 200 OK in 21ms (Views: 16.3ms | ActiveRecord: 1.1ms)
+
+
+  Rendered api/battles/show.json.jbuilder (5.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.2ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___2426107654787167340_70297687401720'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 13:33:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 134ms (Views: 131.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/dungeons/1" for ::1 at 2022-03-04 13:33:21 -0500
+Started GET "/api/battles/undefined" for ::1 at 2022-03-04 13:33:21 -0500
+
+LoadError - Unable to autoload constant Api::BattlesController, expected /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/controllers/api/battles_controller.rb to define it:
+
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (3.2ms)
+Completed 200 OK in 24ms (Views: 8.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 13:34:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 185ms (Views: 182.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/dungeons/1" for ::1 at 2022-03-04 13:34:07 -0500
+Started GET "/api/battles/1" for ::1 at 2022-03-04 13:34:07 -0500
+
+LoadError - Unable to autoload constant Api::DungeonsController, expected /Users/matthewswedin/Desktop/Code Life/Projects/haunted_woods_traversal/app/controllers/api/dungeons_controller.rb to define it:
+
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBattle Load (0.1ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."player_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendered api/battles/show.json.jbuilder (3.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.1ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/battles/show.json.jbuilder:1:in `_app_views_api_battles_show_json_jbuilder___2426107654787167340_70297687287900'
+  app/controllers/api/battles_controller.rb:17:in `show'
+
+Started GET "/" for ::1 at 2022-03-04 13:34:37 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 142ms (Views: 141.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/dungeons/1" for ::1 at 2022-03-04 13:34:37 -0500
+Started GET "/api/battles/1" for ::1 at 2022-03-04 13:34:37 -0500
+Processing by Api::DungeonsController#show as JSON
+Processing by Api::BattlesController#show as JSON
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"1"}
+  [1m[36mDungeon Load (0.3ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  [1m[36mBattle Load (1.1ms)[0m  [1m[34mSELECT  "battles".* FROM "battles" WHERE "battles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/battles_controller.rb:16
+  Rendering api/battles/show.json.jbuilder
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (4.0ms)
+Completed 200 OK in 66ms (Views: 22.1ms | ActiveRecord: 4.6ms)
+
+
+  Rendered api/battles/_battle.json.jbuilder (0.2ms)
+  Rendered api/battles/show.json.jbuilder (10.2ms)
+Completed 200 OK in 67ms (Views: 16.9ms | ActiveRecord: 36.8ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 13:35:06 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 172ms (Views: 171.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/dungeons/1" for ::1 at 2022-03-04 13:35:07 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDungeon Load (0.3ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.2ms)
+  Rendered api/dungeons/show.json.jbuilder (2.8ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/api/dungeons/1" for ::1 at 2022-03-04 13:35:09 -0500
+Processing by Api::DungeonsController#update as JSON
+  Parameters: {"dungeon"=>{"id"=>1, "current_room"=>{"name"=>"The Bernier Room", "enemies"=>["Empty"], "treasure"=>["treasureC"], "leet"=>["Empty"], "left"=>nil, "right"=>{"name"=>"The McGlynn Room", "enemies"=>[{"name"=>"Adela", "type"=>"Primary Gargoyle", "tagLine"=>"Override wireless hard drive!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["Empty"], "leet"=>["fizbiz", "two_sum"], "left"=>nil, "right"=>nil}}}, "id"=>"1"}
+  [1m[36mDungeon Load (0.2ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:29
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  [1m[36mDungeon Update (0.3ms)[0m  [1m[33mUPDATE "dungeons" SET "current_room" = $1, "updated_at" = $2 WHERE "dungeons"."id" = $3[0m  [["current_room", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The Bernier Room\nenemies:\n- Empty\ntreasure:\n- treasureC\nleet:\n- Empty\nleft: \nright: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: The McGlynn Room\n  enemies:\n  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n    name: Adela\n    type: Primary Gargoyle\n    tagLine: Override wireless hard drive!\n    hitPoints: 1\n    attack: 1\n    defense: 1\n    level: 1\n  treasure:\n  - Empty\n  leet:\n  - fizbiz\n  - two_sum\n  left: \n  right: \n"], ["updated_at", "2022-03-04 18:35:09.661186"], ["id", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.2ms)
+  Rendered api/dungeons/show.json.jbuilder (3.4ms)
+Completed 200 OK in 20ms (Views: 8.9ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/api/dungeons/1" for ::1 at 2022-03-04 13:35:10 -0500
+Processing by Api::DungeonsController#update as JSON
+  Parameters: {"dungeon"=>{"id"=>1, "current_room"=>{"name"=>"The McGlynn Room", "enemies"=>[{"name"=>"Adela", "type"=>"Primary Gargoyle", "tagLine"=>"Override wireless hard drive!", "hitPoints"=>1, "attack"=>1, "defense"=>1, "level"=>1}], "treasure"=>["Empty"], "leet"=>["fizbiz", "two_sum"], "left"=>nil, "right"=>nil}}, "id"=>"1"}
+  [1m[36mDungeon Load (0.2ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:29
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  [1m[36mDungeon Update (0.3ms)[0m  [1m[33mUPDATE "dungeons" SET "current_room" = $1, "updated_at" = $2 WHERE "dungeons"."id" = $3[0m  [["current_room", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nname: The McGlynn Room\nenemies:\n- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  name: Adela\n  type: Primary Gargoyle\n  tagLine: Override wireless hard drive!\n  hitPoints: 1\n  attack: 1\n  defense: 1\n  level: 1\ntreasure:\n- Empty\nleet:\n- fizbiz\n- two_sum\nleft: \nright: \n"], ["updated_at", "2022-03-04 18:35:10.654285"], ["id", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/dungeons_controller.rb:31
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.4ms)
+  Rendered api/dungeons/show.json.jbuilder (3.5ms)
+Completed 200 OK in 19ms (Views: 9.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2022-03-04 13:40:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fYIKkppbnVzTL8dCgQFAXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 113ms (Views: 112.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/dungeons/1" for ::1 at 2022-03-04 13:40:50 -0500
+Processing by Api::DungeonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDungeon Load (0.4ms)[0m  [1m[34mSELECT  "dungeons".* FROM "dungeons" WHERE "dungeons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dungeons_controller.rb:19
+  Rendering api/dungeons/show.json.jbuilder
+  Rendered api/dungeons/_dungeon.json.jbuilder (0.3ms)
+  Rendered api/dungeons/show.json.jbuilder (3.0ms)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+
+
