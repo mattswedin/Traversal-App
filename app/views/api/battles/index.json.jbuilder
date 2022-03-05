@@ -1,4 +1,4 @@
-@dungeons.each do |battle|
+@battles.each do |battle|
     json.set! battle.player_id do
         json.partial! 'battle', battle: battle
     end

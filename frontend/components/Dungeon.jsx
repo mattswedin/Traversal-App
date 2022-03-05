@@ -16,12 +16,17 @@ const Dungeon = () => {
 
     useEffect(() => {
         dispatch(showDungeon(id.dungeonId))
-        // dispatch(showBattle(currentUser.id))
+        dispatch(showBattle(currentUser.id))
     }, [])
 
     const dungeon = useSelector(state => {
         return state.entities.dungeon
     })
+
+    const battle = useSelector(state => {
+        return state.entities.battle
+    })
+
 
 
     const traverse = (direction) => {
@@ -50,7 +55,7 @@ const Dungeon = () => {
     }
 
 
-    return dungeon.current_room ? (
+    return dungeon.current_room && battle.enemies ? (
         <div>
             <h1>{dungeon.name}</h1>
             <h2>{dungeon.current_room.name}</h2>
@@ -64,7 +69,7 @@ const Dungeon = () => {
             </h1>
             <div>
                 {
-                    dungeon.current_room.enemies[0] != "Empty" ? <DungeonBattle enemies={dungeon.current_room.enemies} /> : null
+                    dungeon.current_room.enemies[0] != "Empty" ? <DungeonBattle currentRoom = {dungeon.current_room}battleWorld={battle} enemyArray={dungeon.current_room.enemies} /> : null
                 }
             </div>
             <h1>

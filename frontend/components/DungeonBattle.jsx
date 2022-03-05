@@ -1,29 +1,39 @@
 import React, { useState, useEffect } from 'react'
+import { updateBattle } from '../actions/battle_actions'
+import { useDispatch } from 'react-redux'
 
-const DungeonBattle = ({enemies}) => {
+const DungeonBattle = ({battleWorld, enemyArray, currentRoom}) => {
+    const dispatch = useDispatch()
+    const [gameText, setGameText] = useState('Empty')
 
-    const [gameText, setGameText] = useState('')
+    let battle = {
+        id: battleWorld.id,
+        enemies: battleWorld.enemies.push(...enemyArray),
+        game_text: gameText
+    }
 
-    
+    useEffect(() => {
+        dispatch(updateBattle(battle))
+    }, [battle.enemies, battle.game_text])
 
     useEffect(() => {
         gameStart()
-    }, [enemies])
+    }, [currentRoom])
 
 
     const gameStart = () => {
 
-        switch (enemies.length) {
+        switch (battleWorld.enemies.length) {
             case 1:
-                setGameText(`The ${enemies[0].type} materialized in front of you!`)
+                setGameText(`The ${battleWorld.enemies[0].type} materialized in front of you!`)
                 // dispatch(updateBattle(gameText))
                 break;
             case 2:
-                setGameText(`The ${enemies[0].type} & ${enemies[1].type} materialized in front of you!`)
+                setGameText(`The ${battleWorld.enemies[0].type} & ${battleWorld.enemies[1].type} materialized in front of you!`)
 
                 break;
             case 3:
-                setGameText(`The ${enemies[0].type}, ${enemies[1].type}, & ${enemies[2].type} materialized in front of you!`)
+                setGameText(`The ${battleWorld.enemies[0].type}, ${battleWorld.enemies[1].type}, & ${battleWorld.enemies[2].type} materialized in front of you!`)
                 break;
             default:
                 break;
@@ -35,7 +45,7 @@ const DungeonBattle = ({enemies}) => {
 
     const playerAttack = () => {
 
-        if (enemies.length > 1){
+        if (battleWorld.enemies.length > 1){
             setPick(true)
             setGameText('Which enemy will you chose?')
         }
@@ -46,8 +56,8 @@ const DungeonBattle = ({enemies}) => {
         <div>
             <div>
                 {
-                        enemies.map((enemy, i) => (
-                                <div key={enemy.name} > 
+                        battleWorld.enemies.map((enemy, i) => (
+                                <div key={enemy.name + i} > 
                                     <br/>
                                     <h4>The {enemy.type}</h4>
                                     <br/>
@@ -62,7 +72,7 @@ const DungeonBattle = ({enemies}) => {
                             ))
                 }
             </div>
-            <h1>{gameText}</h1>
+            <h1>{battleWorld.game_text}</h1>
             <div>
                 <button onClick={() => playerAttack()}>Attack</button>
                 <button>Speak</button>
