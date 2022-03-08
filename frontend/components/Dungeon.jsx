@@ -69,7 +69,7 @@ const Dungeon = () => {
             </h1>
             <div>
                 {
-                    dungeon.current_room.enemies[0] != "Empty" ? <DungeonBattle currentRoom = {dungeon.current_room}battleWorld={battle} enemyArray={dungeon.current_room.enemies} /> : null
+                    dungeon.current_room.enemies[0] != "Empty" ? <DungeonBattle currentRoom = {dungeon.current_room}battleWorld={battle} enemyArray={dungeon.current_room.enemies} currentUser={currentUser} /> : null
                 }
             </div>
             <h1>

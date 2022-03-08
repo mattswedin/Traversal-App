@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { createBattle } from "../actions/battle_actions"
@@ -19,17 +19,16 @@ class Room {
     }
 }
 
-const DungeonCreator = () => {
+const DungeonCreator = ({ currentUser }) => {
     const dispatch = useDispatch()
+    const currentDungeon = useSelector(state => {
+       return state.entities.dungeon[currentUser.id]
+    })
 
     useEffect(() => {
         dispatch(showAllDungeons())
     }, [])
 
-    const currentUser = useSelector(state => state.session.id)
-    const currentDungeon = useSelector(state => {
-       return state.entities.dungeon[currentUser.id]
-    })
 
     //puts dungeon and roomAmount together
 

@@ -39,6 +39,8 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^6.0.0-alpha.7",
-    "faker": "^6.6.6"
+    "faker": "^6.6.6",
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^8.1.0"
   }
 }

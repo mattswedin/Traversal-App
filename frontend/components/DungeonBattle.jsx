@@ -2,31 +2,53 @@ import React, { useState, useEffect } from 'react'
 import { updateBattle } from '../actions/battle_actions'
 import { useDispatch } from 'react-redux'
 
-const DungeonBattle = ({battleWorld, enemyArray, currentRoom}) => {
-    const dispatch = useDispatch()
-    const [gameText, setGameText] = useState('Empty')
+const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
 
+    //BATTLE
+
+    const dispatch = useDispatch()
+    const [currBatt, setCurrBatt] = useState(battleWorld.current_battle)
+    const [pick, setPick] = useState(battleWorld.choice)
+    const [gameText, setGameText] = useState(battleWorld.game_text)
+    
     let battle = {
         id: battleWorld.id,
         enemies: battleWorld.enemies.push(...enemyArray),
-        game_text: gameText
+        game_text: gameText,
+        choice: pick,
+        current_battle: currBatt
     }
+
+    //ENEMIES -  must figure a dry optimization
+
+    enemyOne = {
+        hitPoints: enemyOneLife
+    }
+
+    //UPDATES
 
     useEffect(() => {
         dispatch(updateBattle(battle))
-    }, [battle.enemies, battle.game_text])
+    }, [battle.enemies, battle.game_text, battle.choice, battle.current_battle])
 
     useEffect(() => {
-        gameStart()
+        if (!battleWorld.current_battle){
+            gameStart()
+            setCurrBatt(true)
+        }
+        
     }, [currentRoom])
+
+    ////////////////////////////////////////////////////////////////////////////
 
 
     const gameStart = () => {
 
+
         switch (battleWorld.enemies.length) {
             case 1:
                 setGameText(`The ${battleWorld.enemies[0].type} materialized in front of you!`)
-                // dispatch(updateBattle(gameText))
+            
                 break;
             case 2:
                 setGameText(`The ${battleWorld.enemies[0].type} & ${battleWorld.enemies[1].type} materialized in front of you!`)
@@ -41,40 +63,59 @@ const DungeonBattle = ({battleWorld, enemyArray, currentRoom}) => {
 
     }
 
-    const [pick, setPick] = useState(false)
-
-    const playerAttack = () => {
+    const playerBeforeAttack = () => {
 
         if (battleWorld.enemies.length > 1){
             setPick(true)
             setGameText('Which enemy will you chose?')
+        } else {
+            playerAttack(battleWorld.enemies[0])
         }
        
+    }
+
+    const playerAttack = (enemy) => {
+
+        
+        
+        setGameText(`You charged at ${enemy.name}, the ${enemy.type}!`)
+
+        if ((enemy.hitPoints - currentUser.attack) <= 0){
+           
+        } else {
+            
+        }
+        
     }
 
     return gameText ? (
         <div>
             <div>
                 {
-                        battleWorld.enemies.map((enemy, i) => (
+                        battleWorld.enemies.map((enemy, i) => {
+                              return enemy.hitPoints <= 0 ?  (  
                                 <div key={enemy.name + i} > 
                                     <br/>
                                     <h4>The {enemy.type}</h4>
+                                    <h4>HitPoints: {enemy.hitPoints}</h4>
+                                    <br/>
+                                    <img src={require(`../images/enemies/hash_gargoyle/${enemy.idleImage}`).default} alt='cannot' />
                                     <br/>
                                     <div>
                                         {
-                                            pick ? (
-                                                <button>{enemy.name}</button>
+                                            battleWorld.choice ? (
+                                                <button onClick={() => playerAttack(enemy)}>{enemy.name}</button>
                                             ) : null
                                         }
                                     </div>
-                                </div>                    
-                            ))
+                                </div>               
+                            ) : null  
+                        })
                 }
             </div>
             <h1>{battleWorld.game_text}</h1>
             <div>
-                <button onClick={() => playerAttack()}>Attack</button>
+                <button onClick={() => playerBeforeAttack()}>Attack</button>
                 <button>Speak</button>
             </div>
             

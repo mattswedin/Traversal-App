@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_202213) do
+ActiveRecord::Schema.define(version: 2022_03_05_052253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2022_03_03_202213) do
     t.text "enemies", default: [], null: false, array: true
     t.string "game_text"
     t.integer "player_id"
+    t.boolean "choice", default: false
+    t.boolean "current_battle", default: false
   end
 
   create_table "dungeons", force: :cascade do |t|

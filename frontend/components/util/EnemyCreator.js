@@ -43,6 +43,7 @@ class Enemy {
         this.attack = Math.floor(playerLevel)
         this.defense = Math.floor(playerLevel)
         this.level = level;
+        this.idleImage = 'hash_gargoyle_idle.png'
     }
 
     attacks(playerHitPoints){

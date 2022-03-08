@@ -1,1 +1,1 @@
-json.extract! battle, :id, :player_id, :enemies, :game_text
+json.extract! battle, :id, :player_id, :enemies, :game_text, :choice, :current_battle

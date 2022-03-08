@@ -2,10 +2,12 @@
 #
 # Table name: battles
 #
-#  id        :bigint           not null, primary key
-#  enemies   :text             default([]), not null, is an Array
-#  game_text :string
-#  player_id :integer
+#  id             :bigint           not null
+#  choice         :boolean          default(FALSE)
+#  current_battle :boolean          default(FALSE)
+#  enemies        :text             default([]), not null, is an Array
+#  game_text      :string
+#  player_id      :integer          primary key
 #
 class Battle < ApplicationRecord
     
