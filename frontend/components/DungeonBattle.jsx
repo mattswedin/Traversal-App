@@ -16,14 +16,12 @@ const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
         enemies: battleWorld.enemies.push(...enemyArray),
         game_text: gameText,
         choice: pick,
-        current_battle: currBatt
+        current_battle: currBatt,
     }
 
     //ENEMIES -  must figure a dry optimization
 
-    enemyOne = {
-        hitPoints: enemyOneLife
-    }
+    const [enemyOneLife, setEnemyOneLife] = useState(battleWorld.enemies[0].hitPoints)
 
     //UPDATES
 
@@ -75,13 +73,13 @@ const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
     }
 
     const playerAttack = (enemy) => {
-
-        
-        
+   
         setGameText(`You charged at ${enemy.name}, the ${enemy.type}!`)
-
+        debugger
         if ((enemy.hitPoints - currentUser.attack) <= 0){
-           
+            if (enemy === battleWorld.enemies[0]){
+                setEnemyOneLife(0)
+            }
         } else {
             
         }
@@ -90,11 +88,11 @@ const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
 
     return gameText ? (
         <div>
-            <div>
+            <div className='enemies'>
                 {
                         battleWorld.enemies.map((enemy, i) => {
-                              return enemy.hitPoints <= 0 ?  (  
-                                <div key={enemy.name + i} > 
+                              return !(enemy.hitPoints <= 0) ?  (  
+                                <div key={enemy.name + i} className='enemy'> 
                                     <br/>
                                     <h4>The {enemy.type}</h4>
                                     <h4>HitPoints: {enemy.hitPoints}</h4>
@@ -108,6 +106,7 @@ const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
                                             ) : null
                                         }
                                     </div>
+                                    <br/>
                                 </div>               
                             ) : null  
                         })
