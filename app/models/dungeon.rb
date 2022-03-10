@@ -25,4 +25,8 @@ class Dungeon < ApplicationRecord
    foreign_key: :player_id,
    class_name: :User
 
+   has_many :enemies,
+   foreign_key: :dungeon_id,
+   class_name: :Enemy
+
 end
