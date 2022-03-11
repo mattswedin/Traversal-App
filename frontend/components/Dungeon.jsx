@@ -5,7 +5,6 @@ import { showDungeon, updateDungeon } from "../actions/dungeon_actions"
 import { showBattle } from "../actions/battle_actions"
 import { useParams } from "react-router"
 import { useNavigate } from "react-router-dom";
-import DungeonCode from "./DungeonCode";
 import DungeonBattle from "./DungeonBattle";
 
 const Dungeon = () => {
@@ -60,25 +59,11 @@ const Dungeon = () => {
             <h1>{dungeon.name}</h1>
             <h2>{dungeon.current_room.name}</h2>
             <br/>
-            <h1>
-                {
-                    dungeon.current_room.leet[0] != "Empty" ? dungeon.current_room.leet.map(problem => (
-                        problem 
-                    )) : null
-                }
-            </h1>
             <div>
                 {
                     dungeon.current_room.enemies[0] != "Empty" ? <DungeonBattle currentRoom = {dungeon.current_room}battleWorld={battle} enemyArray={dungeon.current_room.enemies} currentUser={currentUser} /> : null
                 }
             </div>
-            <h1>
-                {
-                    dungeon.current_room.treasure[0] != "Empty" ? dungeon.current_room.treasure.map(treas => (
-                        treas 
-                    )) : null
-                }
-            </h1>
             <div>
                 {
                    dungeon.current_room.left ? (

@@ -33,11 +33,13 @@
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
+    "regenerator-runtime": "^0.13.9",
     "reset-css": "^5.0.1",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@faker-js/faker": "^6.0.0-alpha.7",
     "faker": "^6.6.6",
     "file-loader": "^6.2.0",

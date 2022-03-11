@@ -5,19 +5,20 @@ import { createBattle } from "../actions/battle_actions"
 import { createDungeon, showAllDungeons } from '../actions/dungeon_actions'
 import { updateUser } from '../actions/session_actions'
 const { faker } = require('@faker-js/faker');
-import Enemy from "./util/EnemyCreator"
+import axios from 'axios'
+import regeneratorRuntime from "regenerator-runtime";
 
 
 class Room {
-    constructor(enemies, treasure, leet) {
+    constructor(enemyAmount) {
         this.name = "The " + faker.name.lastName() + " Room"
-        this.enemies = [ ...enemies ]
-        this.treasure = [ ...treasure ]
-        this.leet = [ ...leet ]
+        this.enemy_amount = enemyAmount
         this.left = null;
         this.right = null;
     }
 }
+
+//Component
 
 const DungeonCreator = ({ currentUser }) => {
     const dispatch = useDispatch()
@@ -29,17 +30,15 @@ const DungeonCreator = ({ currentUser }) => {
         dispatch(showAllDungeons())
     }, [])
 
-
     //puts dungeon and roomAmount together
 
     const createEntireDungeon = (e) => {  
 
         e.preventDefault()
 
-        const roomAmount = dungeonRoomAmount(currentUser.level)
+        const roomAmount = dungeonRoomAmount()
         const dungeonTree = dungeonBinaryTree(roomAmount)
         
-
         const dungeon = {
             room_amount: roomAmount,
             entire_dungeon: dungeonTree,
@@ -57,14 +56,34 @@ const DungeonCreator = ({ currentUser }) => {
     
     }
 
+
+    const roomCreator = () => {
+
+        let enemyAmount;
+
+        if(currentUser.level < 30){
+            enemyAmount = Math.floor(Math.random() * 4)
+        }
+
+        // for (let i = 0; i < enemyAmount; i++) {
+        //     axios.post('/api/enemies', enemyObject)
+        //     .then(res => enemies.push(res.data))
+        //     .catch(err => console.log(err))
+        // }
+
+        return new Room(enemyAmount);
+        
+    }
+
+
     //creates actualdungeon
 
     const dungeonBinaryTree = (roomAmount) => {
-        const root = roomCreator(currentUser.level)
+        const root = roomCreator()
         const current_node = root
 
-        current_node.left = roomCreator(currentUser.level)
-        current_node.right = roomCreator(currentUser.level)
+        current_node.left = roomCreator()
+        current_node.right = roomCreator()
         roomAmount -= 3
 
         let roomAmountLeft = Math.floor(roomAmount / 2)
@@ -94,23 +113,23 @@ const DungeonCreator = ({ currentUser }) => {
         if (rando === 0){
 
             if (!node.left && amount){
-            node.left = roomCreator(currentUser.level, amount)
+            node.left = roomCreator()
             amount -= 1
             }
 
             if (!node.right && amount){
-                node.right = roomCreator(currentUser.level, amount)
+                node.right = roomCreator()
                 amount -= 1
             }
 
         } else {
             if (!node.right && amount){
-                node.right = roomCreator(currentUser.level, amount)
+                node.right = roomCreator()
                 amount -= 1
             }
 
             if (!node.left && amount){
-                node.left = roomCreator(currentUser.level, amount)
+                node.left = roomCreator()
                 amount -= 1
             }
         }
@@ -126,54 +145,12 @@ const DungeonCreator = ({ currentUser }) => {
 
     //Creates a room. Difficulty based off level
 
-    const roomCreator = (level, amount) => {
 
-        const treasureVaultEasy = ['treasureA', 'treasureB', 'treasureC', 'treasureD']
-        const leetVaultEasy = ['two_sum', 'is_prime?', 'fizbiz', "fibonocci"]
-        const enemies = [];
-        const treasure = [];
-        const leet = [];
+    
 
-        //need to optimize for beyond 30
+    const dungeonRoomAmount = () => {
 
-        if (level < 30){
-            const enemyAmount = Math.floor(Math.random() * 3)
-            const treasureAmount = Math.floor(Math.random() * 3)
-            const leetAmount = Math.floor(Math.random() * 3)
-
-            //Random Enemies
-
-            if (enemyAmount === 0) enemies.push('Empty')
-
-            for (let i = 0; i < enemyAmount; i++){
-                let enemy = new Enemy(currentUser.level, 'Gargoyle', amount )
-                enemies.push(enemy)
-            }
-
-            //Random Treasures
-
-            if (treasureAmount === 0) treasure.push('Empty')
-
-            for (let i = 0; i < treasureAmount; i++){
-                const pos = Math.floor(Math.random() * treasureVaultEasy.length)
-                treasure.push(treasureVaultEasy[pos])
-            }
-
-            //Random Leet
-
-            if (leetAmount === 0) leet.push('Empty')
-
-            for(let i = 0; i < leetAmount; i++){
-                const pos = Math.floor(Math.random() * leetVaultEasy.length)
-                leet.push(leetVaultEasy[pos])
-            }
-            return new Room(enemies, treasure, leet)
-        }
-    }
-
-    const dungeonRoomAmount = (level) => {
-
-        if (level < 30){
+        if (currentUser.level < 30){
             return 5;
         } else {
             return Math.floor(level * .2)
