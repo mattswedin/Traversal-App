@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { createBattle } from "../actions/battle_actions"
-import { createDungeon, showAllDungeons } from '../actions/dungeon_actions'
-import { updateUser } from '../actions/session_actions'
+import { createDungeon } from '../actions/dungeon_actions'
 const { faker } = require('@faker-js/faker');
-import axios from 'axios'
+import axios from "axios";
 import regeneratorRuntime from "regenerator-runtime";
 
 
+
 class Room {
-    constructor(enemyAmount) {
+    constructor(enemies) {
         this.name = "The " + faker.name.lastName() + " Room"
-        this.enemy_amount = enemyAmount
+        this.enemies = enemies
         this.left = null;
         this.right = null;
     }
@@ -22,68 +21,88 @@ class Room {
 
 const DungeonCreator = ({ currentUser }) => {
     const dispatch = useDispatch()
-    const currentDungeon = useSelector(state => {
-       return state.entities.dungeon[currentUser.id]
-    })
+    const [ roomsWithEnemies, setRoomsWithEnemies ] = useState({})
+    let roomAmount;
+
+    //roomAmount calculations
+    if (currentUser.level < 30){
+        roomAmount = 5;
+    } else {
+        roomAmount = Math.floor(level * .2)
+    }
+    //roomAmount calculations
 
     useEffect(() => {
-        dispatch(showAllDungeons())
+
+        const enemyCreator = async (type) => {
+
+            let enemy = {
+                enemy_type: type,
+                image: `${type}_image.png`,
+                level: currentUser.level
+            }
+
+            try {
+                const res = await axios.post('/api/enemies', { enemy });
+                return res.data;
+            } catch (err) {
+                return console.log(err);
+            }
+        }
+
+        for (let i = 0; i < roomAmount; i++) {
+            let enemyAmount;
+            let type;
+
+            if (currentUser.level <= 20){
+                enemyAmount = Math.floor(Math.random() * 4)
+                type = 'Gargoyle'
+            }
+
+            for (let j = 0; j < enemyAmount; j++) {
+                    if (!(`room ${i}` in roomsWithEnemies)){
+                        roomsWithEnemies[`room ${i}`] = []
+                        setRoomsWithEnemies(roomsWithEnemies)
+                    }
+                    const enemy = enemyCreator(type)
+                    enemy.then(response => {
+                        console.log(response)
+                        roomsWithEnemies[`room ${i}`].push(response)
+                        setRoomsWithEnemies(roomsWithEnemies)
+                    })
+                       
+                }
+                
+        }
+
     }, [])
 
-    //puts dungeon and roomAmount together
 
-    const createEntireDungeon = (e) => {  
+    const createRoom = (number) => {  
 
-        e.preventDefault()
+        let room;
 
-        const roomAmount = dungeonRoomAmount()
-        const dungeonTree = dungeonBinaryTree(roomAmount)
-        
-        const dungeon = {
-            room_amount: roomAmount,
-            entire_dungeon: dungeonTree,
-            current_room: dungeonTree
-        }
-
-        const user = {
-            id: currentUser.id,
-            hasDungeon: true
+        if ((`room ${number}` in roomsWithEnemies)){
+            let enemies = roomsWithEnemies[`room ${number}`]
+            room = new Room(enemies)
+        } else {
+            room = new Room('Empty')
         }
         
-        dispatch(createDungeon(dungeon))
-        dispatch(updateUser(user))
-        dispatch(createBattle())
+        return room
     
     }
 
+    // //creates actualdungeon
 
-    const roomCreator = () => {
-
-        let enemyAmount;
-
-        if(currentUser.level < 30){
-            enemyAmount = Math.floor(Math.random() * 4)
-        }
-
-        // for (let i = 0; i < enemyAmount; i++) {
-        //     axios.post('/api/enemies', enemyObject)
-        //     .then(res => enemies.push(res.data))
-        //     .catch(err => console.log(err))
-        // }
-
-        return new Room(enemyAmount);
-        
-    }
-
-
-    //creates actualdungeon
-
-    const dungeonBinaryTree = (roomAmount) => {
-        const root = roomCreator()
+    const createLocalDungeon = () => {
+    
+        const root = createRoom(0)
         const current_node = root
+        let num = 0
 
-        current_node.left = roomCreator()
-        current_node.right = roomCreator()
+        current_node.left = createRoom(num += 1)
+        current_node.right = createRoom(num += 1)
         roomAmount -= 3
 
         let roomAmountLeft = Math.floor(roomAmount / 2)
@@ -99,37 +118,50 @@ const DungeonCreator = ({ currentUser }) => {
             }
         }
 
-        dungeonBinaryTreeHelper(current_node.right, roomAmountRight)
-        dungeonBinaryTreeHelper(current_node.left, roomAmountLeft)
+        createLocalDungeonHelper(current_node.right, roomAmountRight, num)
+        createLocalDungeonHelper(current_node.left, roomAmountLeft, num)
 
-        return root
+        dungeonFinalStep(num, root);
     }
 
-    const dungeonBinaryTreeHelper = (node, amount) => {
-    
-        if (amount === 0) return;
-        let rando = Math.floor(Math.random() * 2)
+    const dungeonFinalStep = (num, root) => {
+         
+        const dungeon = {
+            room_amount: num,
+            entire_dungeon: root,
+            current_room: root
+        }
 
+        dispatch(createDungeon(dungeon))
+        // dispatch(createBattle())
+    }
+
+    const createLocalDungeonHelper = (node, amount, num) => {
+    
+        if (amount <= 0) return;
+        let rando = Math.floor(Math.random() * 2)
+        
         if (rando === 0){
 
             if (!node.left && amount){
-            node.left = roomCreator()
+            node.left = createRoom(num += 1)
             amount -= 1
             }
 
             if (!node.right && amount){
-                node.right = roomCreator()
+                node.right = createRoom(num += 1)
                 amount -= 1
             }
 
         } else {
+
             if (!node.right && amount){
-                node.right = roomCreator()
+                node.right = createRoom(num += 1)
                 amount -= 1
             }
 
             if (!node.left && amount){
-                node.left = roomCreator()
+                node.left = createRoom(num += 1)
                 amount -= 1
             }
         }
@@ -137,32 +169,19 @@ const DungeonCreator = ({ currentUser }) => {
         rando = Math.floor(Math.random() * 2)
 
         if (rando === 0){
-            dungeonBinaryTreeHelper(node.left, amount)
+            createLocalDungeonHelper(node.left, amount, num)
         } else {
-            dungeonBinaryTreeHelper(node.right, amount)
+            createLocalDungeonHelper(node.right, amount, num)
         }
     }
-
-    //Creates a room. Difficulty based off level
-
-
-    
-
-    const dungeonRoomAmount = () => {
-
-        if (currentUser.level < 30){
-            return 5;
-        } else {
-            return Math.floor(level * .2)
-        }
-    }
+        
 
     //DISPLAY
 
-    return !currentDungeon ? (
-        <button onClick={createEntireDungeon}>Find New Dungeon</button>
+    return roomsWithEnemies ? (
+        <button onClick={createLocalDungeon}>Find New Dungeon</button>
     ) : (
-        <Link to={`/dungeon/${currentDungeon.id}`}>{currentDungeon.name}</Link>
+        <div>...Loading</div>
     )
 
 }

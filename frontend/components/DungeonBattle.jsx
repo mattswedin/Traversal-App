@@ -1,41 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import { updateBattle } from '../actions/battle_actions'
 import { useDispatch } from 'react-redux'
+import axios from 'axios'
 
-const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
+const DungeonBattle = ({battleWorld, currentRoom, currentUser}) => {
 
     //BATTLE
 
     const dispatch = useDispatch()
-    const [currBatt, setCurrBatt] = useState(battleWorld.current_battle)
-    const [pick, setPick] = useState(battleWorld.choice)
-    const [gameText, setGameText] = useState(battleWorld.game_text)
+    // const [currBatt, setCurrBatt] = useState(battleWorld.current_battle)
+    // const [pick, setPick] = useState(battleWorld.choice)
+    // const [gameText, setGameText] = useState(battleWorld.game_text)
     
-    let battle = {
-        id: battleWorld.id,
-        enemies: battleWorld.enemies.push(...enemyArray),
-        game_text: gameText,
-        choice: pick,
-        current_battle: currBatt,
-    }
+    // let battle = {
+    //     id: battleWorld.id,
+    //     enemies: battleWorld.enemies.push(...enemyArray),
+    //     game_text: gameText,
+    //     choice: pick,
+    //     current_battle: currBatt,
+    // }
 
     //ENEMIES -  must figure a dry optimization
 
-    const [enemyOneLife, setEnemyOneLife] = useState(battleWorld.enemies[0].hitPoints)
-
     //UPDATES
 
-    useEffect(() => {
-        dispatch(updateBattle(battle))
-    }, [battle.enemies, battle.game_text, battle.choice, battle.current_battle])
+    // useEffect(() => {
+    //     dispatch(updateBattle(battle))
+    // }, [battle.enemies, battle.game_text, battle.choice, battle.current_battle])
 
-    useEffect(() => {
-        if (!battleWorld.current_battle){
-            gameStart()
-            setCurrBatt(true)
-        }
+    // useEffect(() => {
+    //     if (!battleWorld.current_battle){
+            
+    //         gameStart()
+    //         setCurrBatt(true)
+    //     }
         
-    }, [currentRoom])
+    // }, [currentRoom])
 
     ////////////////////////////////////////////////////////////////////////////
 
@@ -86,25 +86,25 @@ const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
         
     }
 
-    return gameText ? (
+    return currentRoom.enemies !== 'Empty' ? (
         <div>
             <div className='enemies'>
                 {
-                        battleWorld.enemies.map((enemy, i) => {
+                        currentRoom.enemies.map((enemy, i) => {
                               return !(enemy.hitPoints <= 0) ?  (  
                                 <div key={enemy.name + i} className='enemy'> 
                                     <br/>
-                                    <h4>The {enemy.type}</h4>
-                                    <h4>HitPoints: {enemy.hitPoints}</h4>
+                                    <h4>{enemy.enemy_type}</h4>
+                                    <h4>HitPoints: {enemy.hit_points}</h4>
                                     <br/>
-                                    <img src={require(`../images/enemies/hash_gargoyle/${enemy.idleImage}`).default} alt='cannot' />
+                                    <img src={require(`../images/enemies/hash_gargoyle/${enemy.image}`).default} alt='cannot' />
                                     <br/>
                                     <div>
-                                        {
+                                        {/* {
                                             battleWorld.choice ? (
                                                 <button onClick={() => playerAttack(enemy)}>{enemy.name}</button>
                                             ) : null
-                                        }
+                                        } */}
                                     </div>
                                     <br/>
                                 </div>               
@@ -112,7 +112,7 @@ const DungeonBattle = ({battleWorld, enemyArray, currentRoom, currentUser}) => {
                         })
                 }
             </div>
-            <h1>{battleWorld.game_text}</h1>
+            <h1></h1>
             <div>
                 <button onClick={() => playerBeforeAttack()}>Attack</button>
                 <button>Speak</button>

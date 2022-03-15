@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup, login, logout } from '../actions/session_actions'
-import DungeonCreator from './DungeonCreator';
+import DungeonCreatorOrDisplay from './DungeonCreateOrDisplay';
 import { createBattle } from '../actions/battle_actions';
 
 const Greeting = () => {
@@ -65,7 +65,7 @@ const Greeting = () => {
         <div>
             <h1>WELCOME {currentUser.username}</h1>
             <button onClick={() => dispatch(logout())}>Logout</button>
-            <DungeonCreator currentUser={currentUser}/>
+            <DungeonCreatorOrDisplay currentUser={currentUser}/>
         </div>
     )
 }
