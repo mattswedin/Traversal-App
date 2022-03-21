@@ -19,7 +19,7 @@ class Room {
 
 //Component
 
-const DungeonCreator = ({ currentUser }) => {
+const DungeonCreator = ({ currentUser, currentDungeon }) => {
     const dispatch = useDispatch()
     const [ roomsWithEnemies, setRoomsWithEnemies ] = useState({})
     let roomAmount;
@@ -33,46 +33,48 @@ const DungeonCreator = ({ currentUser }) => {
     //roomAmount calculations
 
     useEffect(() => {
+        
+        if (!currentDungeon) {
+            const enemyCreator = async (type) => {
 
-        const enemyCreator = async (type) => {
-
-            let enemy = {
-                enemy_type: type,
-                image: `${type}_image.png`,
-                level: currentUser.level
-            }
-
-            try {
-                const res = await axios.post('/api/enemies', { enemy });
-                return res.data;
-            } catch (err) {
-                return console.log(err);
-            }
-        }
-
-        for (let i = 0; i < roomAmount; i++) {
-            let enemyAmount;
-            let type;
-
-            if (currentUser.level <= 20){
-                enemyAmount = Math.floor(Math.random() * 4)
-                type = 'Gargoyle'
-            }
-
-            for (let j = 0; j < enemyAmount; j++) {
-                    if (!(`room ${i}` in roomsWithEnemies)){
-                        roomsWithEnemies[`room ${i}`] = []
-                        setRoomsWithEnemies(roomsWithEnemies)
-                    }
-                    const enemy = enemyCreator(type)
-                    enemy.then(response => {
-                        console.log(response)
-                        roomsWithEnemies[`room ${i}`].push(response)
-                        setRoomsWithEnemies(roomsWithEnemies)
-                    })
-                       
+                let enemy = {
+                    enemy_type: type,
+                    image: `${type}_image.png`,
+                    level: currentUser.level
                 }
-                
+
+                try {
+                    const res = await axios.post('/api/enemies', { enemy });
+                    return res.data;
+                } catch (err) {
+                    return console.log(err);
+                }
+            }
+
+            for (let i = 0; i < roomAmount; i++) {
+                let enemyAmount;
+                let type;
+
+                if (currentUser.level <= 20){
+                    enemyAmount = Math.floor(Math.random() * 4)
+                    type = 'Gargoyle'
+                }
+
+                for (let j = 0; j < enemyAmount; j++) {
+                        if (!(`room ${i}` in roomsWithEnemies)){
+                            roomsWithEnemies[`room ${i}`] = []
+                            setRoomsWithEnemies(roomsWithEnemies)
+                        }
+                        const enemy = enemyCreator(type)
+                        enemy.then(response => {
+                            console.log(response)
+                            roomsWithEnemies[`room ${i}`].push(response)
+                            setRoomsWithEnemies(roomsWithEnemies)
+                        })
+                        
+                    }
+                    
+            }
         }
 
     }, [])
@@ -133,7 +135,7 @@ const DungeonCreator = ({ currentUser }) => {
         }
 
         dispatch(createDungeon(dungeon))
-        // dispatch(createBattle())
+        dispatch(createBattle())
     }
 
     const createLocalDungeonHelper = (node, amount, num) => {

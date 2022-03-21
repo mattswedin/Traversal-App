@@ -34,7 +34,7 @@ class Api::BattlesController < ApplicationController
     private
 
     def battle_params
-        params.require(:battle).permit(:choice, :game_text, :current_battle, enemies: [])
+        params.require(:battle).permit(:choice, :game_text, :current_battle)
     end
 
 

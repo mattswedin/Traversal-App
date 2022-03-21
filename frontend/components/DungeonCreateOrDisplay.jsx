@@ -1,8 +1,7 @@
 import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import Dungeon from "./Dungeon"
 import DungeonCreator from "./DungeonCreator"
-import { showAllDungeons, showDungeon } from "../actions/dungeon_actions"
+import { showAllDungeons } from "../actions/dungeon_actions"
 import { Link } from "react-router-dom"
 
 const DungeonCreatorOrDisplay = ({ currentUser }) => {
@@ -16,7 +15,7 @@ const DungeonCreatorOrDisplay = ({ currentUser }) => {
     }, [])
 
     return !currentDungeon ? (
-       <DungeonCreator currentUser={currentUser}/>
+       <DungeonCreator currentUser={currentUser} currentDungeon={currentDungeon} />
     ) : (
        <Link to={`/dungeon/${currentDungeon.id}`}>{currentDungeon.name}</Link>
     )
