@@ -17,6 +17,7 @@ class Dungeon < ApplicationRecord
    serialize :current_room, Object
 
    validates :player_id, presence: true
+   validates :next_room_id, presence: true
    validates :room_amount, presence: true
 
    belongs_to :user,
