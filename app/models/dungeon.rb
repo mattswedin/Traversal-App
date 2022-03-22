@@ -24,4 +24,8 @@ class Dungeon < ApplicationRecord
    foreign_key: :player_id,
    class_name: :User
 
+   has_one :room,
+   foreign_key: :next_room_id,
+   class_name: :Room
+
 end

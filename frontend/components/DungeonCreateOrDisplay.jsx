@@ -17,7 +17,8 @@ const DungeonCreatorOrDisplay = ({ currentUser }) => {
     return !currentDungeon ? (
        <DungeonCreator currentUser={currentUser} currentDungeon={currentDungeon} />
     ) : (
-       <Link to={`/dungeon/${currentDungeon.id}`}>{currentDungeon.name}</Link>
+        null
+//    <Link to={`/dungeon/${currentDungeon.id}`}>{currentDungeon.name}</Link>
     )
 }
 

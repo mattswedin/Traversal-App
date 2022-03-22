@@ -8,6 +8,7 @@ class Api::DungeonsController < ApplicationController
         @dungeon = Dungeon.new(dungeon_params)
         @dungeon.player_id = current_user.id
         @dungeon.name = "The " + Faker::Creature::Bird.adjective.capitalize() + " " + Faker::Creature::Animal.unique.name.capitalize() + " Dungeon"
+        @dungeon.next_room_id = Room.new(@dungeon.room_amount).next_room_id
         if @dungeon.save!
             render "api/dungeons/show"
         else
