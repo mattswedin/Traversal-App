@@ -19,7 +19,7 @@ import regeneratorRuntime from "regenerator-runtime";
 
 // //Component
 
-const DungeonCreator = ({ currentUser, currentDungeon }) => {
+const DungeonCreator = () => {
 
 //     const dispatch = useDispatch()
 //     const [ roomsWithEnemies, setRoomsWithEnemies ] = useState({})
@@ -180,15 +180,15 @@ const DungeonCreator = ({ currentUser, currentDungeon }) => {
 
     const makeDungeon = () => {
 
-        let roomAmount;
+        // let roomAmount;
 
-        if (currentUser.level < 30){
-            roomAmount = 5;
-        } else {
-            roomAmount = Math.floor(level * .2)
-        }
+        // if (currentUser.level < 30){
+        //     roomAmount = 5;
+        // } else {
+        //     roomAmount = Math.floor(level * .2)
+        // }
 
-        dispatch(createDungeon(roomAmount))
+        dispatch(createDungeon())
     }
         
 

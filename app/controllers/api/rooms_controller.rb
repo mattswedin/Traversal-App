@@ -3,7 +3,7 @@ require 'faker'
 class RoomsController < ApplicationController
     
     def create
-        @room = Room.new(room_params)
+        @room = Room.new()
         @room.name = Faker::Name.last_name
         if @room.save
             render :show
