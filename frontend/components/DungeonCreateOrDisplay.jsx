@@ -6,18 +6,18 @@ import { Link } from "react-router-dom"
 
 const DungeonCreatorOrDisplay = ({ currentUser }) => {
 
-    const dispatch = useDispatch()
-    const currentDungeon = useSelector(state => {
-    return state.entities.dungeon[currentUser.id]
-    })
-    useEffect(() => {
-        dispatch(showAllDungeons())
-    }, [])
+    // const dispatch = useDispatch()
+    // const currentDungeon = useSelector(state => {
+    // return state.entities.dungeon[currentUser.id]
+    // })
+    // useEffect(() => {
+    //     dispatch(showAllDungeons())
+    // }, [])
 
-    return !currentDungeon ? (
-       <DungeonCreator currentUser={currentUser} currentDungeon={currentDungeon} />
-    ) : (
-        null
+    return (
+       <DungeonCreator />
+    // ) : (
+    //     null
 //    <Link to={`/dungeon/${currentDungeon.id}`}>{currentDungeon.name}</Link>
     )
 }

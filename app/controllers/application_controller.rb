@@ -7,26 +7,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  #DUNGEON CREATION
-
-  def make_rooms(amount)
-    @dungeon = Dungeon.find_by(player_id: current_user[:id])
-    @room = Room.new()
-    
-    @dungeon.next_room_id = @room.id
-
-    i = 1
-
-    until i == amount
-      @next_room = Room.new()
-      @room.next_room_id = @next_room.id
-      @room = @next_room
-      i += 1
-    end
-  
-    puts "I'm finished"
-
-  end
 
   #USER AUTH
 

@@ -21,7 +21,7 @@ import regeneratorRuntime from "regenerator-runtime";
 
 const DungeonCreator = () => {
 
-//     const dispatch = useDispatch()
+    const dispatch = useDispatch()
 //     const [ roomsWithEnemies, setRoomsWithEnemies ] = useState({})
 //     let roomAmount;
 
