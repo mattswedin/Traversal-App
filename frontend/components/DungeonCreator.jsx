@@ -194,10 +194,8 @@ const DungeonCreator = () => {
 
     //DISPLAY
 
-    return roomsWithEnemies ? (
+    return (
         <button onClick={makeDungeon}>Find New Dungeon</button>
-    ) : (
-        <div>...Loading</div>
     )
 
 }

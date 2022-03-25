@@ -1,1 +1,1 @@
-json.extract! dungeon, :id, :player_id, :room_amount, :current_room, :visited_rooms, :entire_dungeon, :name
+json.extract! dungeon, :id, :player_id, :room_amount, :name, :next_room_id
