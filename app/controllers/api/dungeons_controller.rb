@@ -25,7 +25,7 @@ class Api::DungeonsController < ApplicationController
         @dungeon.player_id = current_user.id
         @dungeon.name = "The " + Faker::Creature::Bird.adjective.capitalize() + " " + Faker::Creature::Animal.unique.name.capitalize() + " Dungeon"
         @dungeon.room_amount = 5 if current_user.level <= 30
-        @dungeon.next_room_id = @room.save
+        @dungeon.next_room_id = @room.id
         @dungeon.save!
 
 

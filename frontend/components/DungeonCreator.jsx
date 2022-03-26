@@ -20,7 +20,7 @@ const DungeonCreator = ({ currentUser }) => {
         }
         getDungeon()
 
-    }, [currentDungeon])
+    }, [])
 
     const makeDungeon =  async () => {
         const { data } = await axios.post('/api/dungeons')

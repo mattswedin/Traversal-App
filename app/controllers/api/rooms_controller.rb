@@ -1,17 +1,9 @@
 require 'faker'
 
-class RoomsController < ApplicationController
-    
-    def create
-        @room = Room.new()
-        @room.name = Faker::Name.last_name
-        if @room.save
-            render :show
-        else
-            render json: @room.errors.full_messages, status: 422
-        end
-    end
+class Api::RoomsController < ApplicationController
 
+    skip_before_action :verify_authenticity_token
+    
     def show
         @room = Room.find_by(id: params[:id])
         render :show

@@ -1,4 +1,4 @@
-import * as RoomApiUtil from `../util/room_api_util`
+import * as RoomApiUtil from '../util/room_api_util'
 
 export const RECEIVE_ROOM = "RECEIVE_ROOM";
 export const RECEIVE_ROOM_ERRORS = "RECEIVE_ROOM_ERRORS"
@@ -15,7 +15,7 @@ export const receiveRoomErrors = errors => ({
 })
 
 export const showRoom = roomId => dispatch => (
-    RoomApiUtil.showDungeon(roomId)
+    RoomApiUtil.showRoom(roomId)
     .then((room) => {
         dispatch(receiveRoom(room))
     })
@@ -25,7 +25,7 @@ export const showRoom = roomId => dispatch => (
 )
 
 export const updateRoom = room => dispatch => (
-    RoomApiUtil.showDungeon(room)
+    RoomApiUtil.showRoom(room)
     .then((room) => {
         dispatch(receiveRoom(room))
     })

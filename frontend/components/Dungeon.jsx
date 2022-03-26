@@ -14,41 +14,29 @@ const Dungeon = () => {
     const dispatch = useDispatch()
     const id = useParams()
     const currentUser = useSelector(state => state.session.id)
-    const [ room, setRoom ] = useState()
 
     useEffect(() => {
         dispatch(showDungeon(id.dungeonId))
-        dispatch(showBattle(currentUser.id))
-        const getRoom = async () => {
-            const { data } = await axios.get(`/api/rooms/${dungeon.next_room_id}`)
-            setRoom(data)
-        }
-
-        if (dungeon){
-            getRoom()
-        }
-
+        // dispatch(showBattle(currentUser.id))
     }, [])
 
     const dungeon = useSelector(state => {
         return state.entities.dungeon
     })
 
-    const battle = useSelector(state => {
-        return state.entities.battle
-    })
-
-
+    // const battle = useSelector(state => {
+    //     return state.entities.battle
+    // })
 
     return dungeon.name ? (
         <div>
             <h1>{dungeon.name}</h1>
             <div>
-                <Room next_room_id={dungeon.next_room_id}/>
+                <Room next_room_id={dungeon.next_room_id} currentUser={currentUser}/>
             </div>
         </div>
     ) : (
-        <h1>No Dungeon</h1>
+        null
     )
 
 }

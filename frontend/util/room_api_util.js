@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 export const showRoom = ( roomId ) => (
-    axios.get(`/api/room/${roomId}`)
+    axios.get(`/api/rooms/${roomId}`)
 )
 
 export const updateRoom = ( room ) => {
-    axios.patch(`/api/room/${room.id}`, { room })
+    axios.patch(`/api/rooms/${room.id}`, { room })
 }
