@@ -14,15 +14,12 @@ class Api::DungeonsController < ApplicationController
         @enemy.tagline = Faker::Hacker.say_something_smart
         @enemy.save!
 
-        byebug
         #room creation
         @room = Room.new
         @room.name = Faker::Name.last_name
         @room.enemy_id = @enemy.id
-        byebug
         @room.save!
 
-        byebug
         #dungeon creation
         @dungeon = Dungeon.new
         @dungeon.player_id = current_user.id
@@ -31,30 +28,29 @@ class Api::DungeonsController < ApplicationController
         @dungeon.next_room_id = @room.save
         @dungeon.save!
 
-        byebug
 
         i = 1
 
         until i == @dungeon.room_amount
-        @enemy = Enemy.new
-        @enemy.name = Faker::Name.first_name
-        @enemy.image = "Gargoyle_image.png"
-        @enemy.hit_points = 5
-        @enemy.enemy_type = "The " + Faker::Emotion.adjective.capitalize() + " " + "Gargoyle"
-        @enemy.tagline = Faker::Hacker.say_something_smart
-        @enemy.save!
+            #creates new enemy
+            @enemy = Enemy.new
+            @enemy.name = Faker::Name.first_name
+            @enemy.image = "Gargoyle_image.png"
+            @enemy.hit_points = 5
+            @enemy.enemy_type = "The " + Faker::Emotion.adjective.capitalize() + " " + "Gargoyle"
+            @enemy.tagline = Faker::Hacker.say_something_smart
+            @enemy.save!
+            #creates next room
+            @next_room = Room.new()
+            @next_room.name = Faker::Name.last_name
+            @next_room.enemy_id = @enemy.id
+            @next_room.save!
+            
+            @room.next_room_id = @next_room.id
+            @room.save!
 
-        @next_room = Room.new()
-        @next_room.name = Faker::Name.last_name
-        @next_room.enemy_id = @enemy.id
-        @next_room.save!
-
-        @room.next_room_id = @next_room.id
-        byebug
-        @room.save!
-
-        @room = @next_room
-        i += 1
+            @room = @next_room
+            i += 1
         end
 
         @room.save!
