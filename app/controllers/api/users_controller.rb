@@ -36,10 +36,10 @@ class Api::UsersController < ApplicationController
     private
 
     def update_user_params
-        params.require(:user).permit(:hasDungeon)
+        params.require(:user).permit(:current_room_id)
     end
 
     def user_params
-        params.require(:user).permit(:username, :password, :current_room_id)
+        params.require(:user).permit(:username, :password)
     end
 end

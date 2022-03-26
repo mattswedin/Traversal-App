@@ -5,6 +5,7 @@ import { showDungeon, updateDungeon } from "../actions/dungeon_actions"
 import { showBattle } from "../actions/battle_actions"
 import { useParams } from "react-router"
 import { useNavigate } from "react-router-dom";
+import Room from "./Room"
 import DungeonBattle from "./DungeonBattle";
 import axios from "axios"
 
@@ -37,16 +38,13 @@ const Dungeon = () => {
         return state.entities.battle
     })
 
-    const traverse = () => {
-
-    }
 
 
     return dungeon.name ? (
         <div>
             <h1>{dungeon.name}</h1>
             <div>
-            
+                <Room next_room_id={dungeon.next_room_id}/>
             </div>
         </div>
     ) : (

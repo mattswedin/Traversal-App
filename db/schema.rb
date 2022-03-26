@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_26_041843) do
+ActiveRecord::Schema.define(version: 2022_03_26_045123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2022_03_26_041843) do
     t.integer "defense", default: 10, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "hasDungeon", default: false
     t.integer "current_room_id"
     t.index ["username"], name: "index_users_on_username"
   end
