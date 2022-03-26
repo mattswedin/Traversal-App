@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: rooms
+#
+#  id           :bigint           not null, primary key
+#  name         :string           not null
+#  enemy_id     :integer          not null
+#  next_room_id :integer
+#
 class Room < ApplicationRecord
 
     validates :enemy_id, presence: true

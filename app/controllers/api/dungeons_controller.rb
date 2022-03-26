@@ -45,7 +45,7 @@ class Api::DungeonsController < ApplicationController
             @next_room.name = Faker::Name.last_name
             @next_room.enemy_id = @enemy.id
             @next_room.save!
-            
+
             @room.next_room_id = @next_room.id
             @room.save!
 
@@ -60,7 +60,7 @@ class Api::DungeonsController < ApplicationController
     end
 
     def show
-        @dungeon = Dungeon.find_by(id: params[:id])
+        @dungeon = Dungeon.find_by(player_id: current_user[:id])
         render :show
     end
 

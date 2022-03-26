@@ -12,6 +12,7 @@
 #  username        :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  current_room_id :integer
 #
 # Indexes
 #
