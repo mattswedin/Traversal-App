@@ -1,47 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import { updateBattle } from '../actions/battle_actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
+import { updateEnemy } from '../actions/enemy_actions'
 
-const DungeonBattle = ({battleGlobal, currentDungeon, currentRoom, currentUser}) => {
+const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}) => {
 
     //BATTLE
 
     const dispatch = useDispatch()
-    const [ currBatt, setCurrBatt ] = useState(battleGlobal.current_battle)
-    const [ pick, setPick ] = useState(battleGlobal.choice)
-    const [ gameText, setGameText ] = useState(battleGlobal.game_text)
-    const { enemies } = currentRoom
+    const [ currBatt, setCurrBatt ] = useState(currentBattle.current_battle)
+    const [ pick, setPick ] = useState(currentBattle.choice)
+    const [ gameText, setGameText ] = useState(currentBattle.game_text)
     
     const battle = {
-        id: battleGlobal.id,
+        id: currentBattle.id,
         game_text: gameText,
         choice: pick,
         current_battle: currBatt,
     }
 
-    //ENEMIES
-
-    // const current_room = {
-    //     enemies: currentRoom.enemies = {
-            
-    //     }
-    // }
-
-    // const dungeon = {
-    //     id: currentDungeon.id,
-    //     current_room: current_room,
-
-    // }
-
     //BATTLE UPDATES
 
     useEffect(() => {
-        if (!battleGlobal.current_battle){
+        if (!currentBattle.current_battle){
             gameStart()
             setCurrBatt(true)
         }
-    }, [enemies])
+    }, [currentBattle.current_battle])
 
     useEffect(() => {
         dispatch(updateBattle(battle))
@@ -52,19 +38,18 @@ const DungeonBattle = ({battleGlobal, currentDungeon, currentRoom, currentUser})
 
 
     const gameStart = () => {
-
         debugger
-        switch (enemies.length) {
+
+        switch (currentEnemies.length) {
             case 1:
-                setGameText(`${enemies[0].enemy_type} materialized in front of you!`)
-            
+                setGameText(`${currentEnemies[0].enemy_type} materialized in front of you!`)
                 break;
             case 2:
-                setGameText(`${enemies[0].enemy_type} & ${enemies[1].enemy_type} materialized in front of you!`)
+                setGameText(`${currentEnemies[0].enemy_type} & ${currentEnemies[1].enemy_type} materialized in front of you!`)
 
                 break;
             case 3:
-                setGameText(`${enemies[0].enemy_type}, ${enemies[1].enemy_type}, & ${enemies[2].enemy_type} materialized in front of you!`)
+                setGameText(`${currentEnemies[0].enemy_type}, ${currentEnemies[1].enemy_type}, & ${currentEnemies[2].enemy_type} materialized in front of you!`)
                 break;
             default:
                 break;
@@ -74,50 +59,47 @@ const DungeonBattle = ({battleGlobal, currentDungeon, currentRoom, currentUser})
 
     const playerBeforeAttack = () => {
 
-        if (enemies.length > 1){
+        if (currentEnemies.length > 1){
             setPick(true)
             setGameText('Which enemy will you chose?')
         } else {
-            playerAttack(enemy)
+            playerAttack(currentEnemies[0])
         }
        
     }
 
     const playerAttack = (enemy) => {
 
-        let newEnemy;
+        let damagedEnemy;
    
         setGameText(`You charged at ${enemy.name}, ${enemy.enemy_type}!`)
         
         if ((enemy.hit_points - currentUser.attack) <= 0){
-            newEnemy = {
+            damagedEnemy = {
+                id: enemy.id,
                 enemy_type: enemy.enemy_type,
                 hit_points: 0,
                 image: enemy.image
             }
         } else {
-            newEnemy = {
+            damagedEnemy = {
+                id: enemy.id,
                 enemy_type: enemy.enemy_type,
                 hit_points: (enemy.hit_points - currentUser.attack),
                 image: enemy.image
             }
         }
+
+        dispatch(updateEnemy(damagedEnemy))
     
-        return axios.patch(`/api/enemies/${enemy.id}`, newEnemy)
-        .then(res => {
-            return res.data;
-        })
-        .catch(err => {
-            console.log(err)
-        })
     }
 
-    return currentRoom.enemies !== 'Empty' ? (
+    return currentEnemies.length > 0 ? (
         <div>
             <div className='enemies'>
                 {
-                        currentRoom.enemies.map((enemy, i) => {
-                              return !(enemy.hitPoints <= 0) ?  (  
+                        currentEnemies.map((enemy, i) => {
+                              return !(enemy.hit_points <= 0) ?  (  
                                 <div key={enemy.name + i} className='enemy'> 
                                     <br/>
                                     <h4>{enemy.enemy_type}</h4>
@@ -127,7 +109,7 @@ const DungeonBattle = ({battleGlobal, currentDungeon, currentRoom, currentUser})
                                     <br/>
                                     <div>
                                         {
-                                            battleGlobal.choice ? (
+                                            currentBattle.choice ? (
                                                 <button onClick={() => playerAttack(enemy)}>{enemy.name}</button>
                                             ) : null
                                         }
@@ -138,7 +120,7 @@ const DungeonBattle = ({battleGlobal, currentDungeon, currentRoom, currentUser})
                         })
                 }
             </div>
-            <h1>{battleGlobal.game_text}</h1>
+            <h1>{currentBattle.game_text}</h1>
             <div>
                 <button onClick={() => playerBeforeAttack()}>Attack</button>
                 <button>Speak</button>

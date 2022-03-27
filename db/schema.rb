@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_26_045123) do
+ActiveRecord::Schema.define(version: 2022_03_27_023943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2022_03_26_045123) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "enemy_id", null: false
     t.integer "next_room_id"
     t.string "name", null: false
+    t.text "enemies", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(version: 2022_03_26_045123) do
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.integer "level", default: 1, null: false
-    t.integer "attack", default: 10, null: false
-    t.integer "defense", default: 10, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_room_id"
+    t.integer "attack", default: 1
+    t.integer "defense", default: 1
+    t.integer "hit_points", default: 10
     t.index ["username"], name: "index_users_on_username"
   end
 

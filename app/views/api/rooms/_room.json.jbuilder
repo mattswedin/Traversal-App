@@ -1,1 +1,1 @@
-json.extract! room, :id, :enemy_id, :next_room_id, :name
+json.extract! room, :id, :enemies, :next_room_id, :name

@@ -5,11 +5,16 @@ import regeneratorRuntime from "regenerator-runtime";
 import { async } from "regenerator-runtime"
 import { updateUser } from "../actions/session_actions";
 import { showRoom } from "../actions/room_actions";
+import { showEnemy } from "../actions/enemy_actions";
+import DungeonBattle from "./DungeonBattle";
+import { createBattle, showBattle } from "../actions/battle_actions";
 
 
 const Room = ({ next_room_id, currentUser }) => {
     const dispatch = useDispatch()
     const room = useSelector(state => state.entities.room)
+    const enemies = useSelector(state => state.entities.enemy.enemies)
+    const battle = useSelector(state => state.entities.battle)
 
     useEffect(() => {
 
@@ -19,8 +24,12 @@ const Room = ({ next_room_id, currentUser }) => {
                 id: currentUser.id,
                 current_room_id: data.id
             }
+
             dispatch(updateUser(user))
             dispatch(showRoom(user.current_room_id));
+            dispatch(createBattle())
+            dispatch(showBattle(currentUser.id))
+
         }
 
         if (!currentUser.current_room_id){
@@ -30,15 +39,34 @@ const Room = ({ next_room_id, currentUser }) => {
     }, [])
 
     useEffect(() => {
+        if (room.enemies){
+            room.enemies.forEach((enemyId) => {
+                dispatch(showEnemy(parseInt(enemyId)))
+            })
+                
+        }
+    }, [room])
+
+    useEffect(() => {
         if (currentUser.current_room_id) {
             dispatch(showRoom(currentUser.current_room_id));
+            dispatch(showBattle(currentUser.id))
         }
     }, [currentUser.current_room_id])
 
-    
 
-    return room.name ? (
-        <h1>The {room.name} Room</h1>
+
+    return room.name && battle.id && enemies ? (
+        <div>
+            <h1>The {room.name} Room</h1>
+            <DungeonBattle 
+            currentRoom={room} 
+            currentBattle={battle} 
+            currentEnemies={enemies}
+            currentUser={currentUser}
+            />
+        </div>
+        
     ) : null
 
 }

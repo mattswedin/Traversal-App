@@ -3,8 +3,9 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  attack          :integer          default(10), not null
-#  defense         :integer          default(10), not null
+#  attack          :integer          default(1)
+#  defense         :integer          default(1)
+#  hit_points      :integer          default(10)
 #  level           :integer          default(1), not null
 #  password_digest :string           not null
 #  session_token   :string           not null

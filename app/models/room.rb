@@ -3,13 +3,12 @@
 # Table name: rooms
 #
 #  id           :bigint           not null, primary key
+#  enemies      :text             default([]), is an Array
 #  name         :string           not null
-#  enemy_id     :integer          not null
 #  next_room_id :integer
 #
 class Room < ApplicationRecord
 
-    validates :enemy_id, presence: true
     validates :name, presence: true
 
     # has_one :room,

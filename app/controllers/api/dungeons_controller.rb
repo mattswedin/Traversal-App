@@ -5,20 +5,9 @@ class Api::DungeonsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def create
-        #enemy creation
-        @enemy = Enemy.new
-        @enemy.name = Faker::Name.first_name
-        @enemy.image = "Gargoyle_image.png"
-        @enemy.hit_points = 5
-        @enemy.enemy_type = "The " + Faker::Emotion.adjective.capitalize() + " " + "Gargoyle"
-        @enemy.tagline = Faker::Hacker.say_something_smart
-        @enemy.save!
-
-        #room creation
         @room = Room.new
         @room.name = Faker::Name.last_name
-        @room.enemy_id = @enemy.id
-        @room.save!
+        enemy_load(@room).save!
 
         #dungeon creation
         @dungeon = Dungeon.new
@@ -28,23 +17,12 @@ class Api::DungeonsController < ApplicationController
         @dungeon.next_room_id = @room.id
         @dungeon.save!
 
-
         i = 1
-
-        until i == @dungeon.room_amount
-            #creates new enemy
-            @enemy = Enemy.new
-            @enemy.name = Faker::Name.first_name
-            @enemy.image = "Gargoyle_image.png"
-            @enemy.hit_points = 5
-            @enemy.enemy_type = "The " + Faker::Emotion.adjective.capitalize() + " " + "Gargoyle"
-            @enemy.tagline = Faker::Hacker.say_something_smart
-            @enemy.save!
+        until i == @dungeon.room_amount       
             #creates next room
             @next_room = Room.new()
             @next_room.name = Faker::Name.last_name
-            @next_room.enemy_id = @enemy.id
-            @next_room.save!
+            enemy_load(@next_room).save!
 
             @room.next_room_id = @next_room.id
             @room.save!
@@ -57,6 +35,23 @@ class Api::DungeonsController < ApplicationController
     
         puts "I'm finished"
 
+    end
+
+    def enemy_load(room)
+        number_of_enemies = rand(4)
+        (0..number_of_enemies).each do |number|
+            if number > 0
+                @enemy = Enemy.new
+                @enemy.name = Faker::Name.first_name
+                @enemy.image = "Gargoyle_image.png"
+                @enemy.hit_points = 5
+                @enemy.enemy_type = "The " + Faker::Emotion.adjective.capitalize() + " " + "Gargoyle"
+                @enemy.tagline = Faker::Hacker.say_something_smart
+                @enemy.save!
+                room.enemies.push(@enemy.id)
+            end
+        end
+        return room
     end
 
     def show
