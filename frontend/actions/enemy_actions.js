@@ -1,6 +1,7 @@
 import * as EnemyApiUtil from '../util/enemy_api_util'
 export const RECEIVE_ENEMY = 'RECEIVE_ENEMY'
 export const RECEIVE_UPDATED_ENEMY = "RECEIVE_UPDATED_ENEMY"
+export const DESTROY_ENEMY = "DESTROY_ENEMY"
 
 export const receiveEnemy = (enemy) => ({
     type: RECEIVE_ENEMY,
@@ -11,6 +12,13 @@ export const receiveUpdatedEnemy = (enemy) => ({
     type: RECEIVE_UPDATED_ENEMY,
     enemy
 })
+
+export const removeEnemy = (enemyId) => ({
+    type: DESTROY_ENEMY,
+    enemyId
+})
+
+
 
 export const showEnemy = (enemyId) => dispatch => (
     EnemyApiUtil.showEnemy(enemyId)
@@ -25,3 +33,10 @@ export const updateEnemy = (enemy) => dispatch => {
         dispatch(receiveUpdatedEnemy(enemy))
     })
 }
+
+export const destroyEnemy = (enemyId) => dispatch => (
+    EnemyApiUtil.destroyEnemy(enemyId)
+    .then((enemy) => {
+        dispatch(removeEnemy(enemy))
+    })
+)

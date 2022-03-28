@@ -8,3 +8,7 @@ export const showEnemy = (enemyId) => (
 export const updateEnemy = (enemy) => (
     axios.patch(`/api/enemies/${enemy.id}`, { enemy })
 )
+
+export const destroyEnemy = enemyId => (
+    axios.destroy(`/api/enemies/${enemyId}`)
+)
