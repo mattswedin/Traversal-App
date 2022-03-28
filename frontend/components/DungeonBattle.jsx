@@ -3,6 +3,8 @@ import { updateBattle } from '../actions/battle_actions'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { updateEnemy } from '../actions/enemy_actions'
+import { updateRoom } from '../actions/room_actions'
+import Room from './Room'
 
 const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}) => {
 
@@ -81,6 +83,20 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
                 hit_points: 0,
                 image: enemy.image
             }
+            setGameText(`You did ${currentUser.attack} damage!`)
+            setTimeout(() => {
+                setGameText(`You destroyed ${enemy.name}!`)
+                const newRoom = {
+                    id: currentRoom.id,
+                    enemies: currentRoom.enemies = currentRoom.enemies.filter(enemy => {
+                        if (!(enemy.hit_points <= 0)){
+                            return enemy
+                        }
+                    })
+                }
+                updateRoom(newRoom)
+                // destroyEnemy()
+            }, 300);
         } else {
             damagedEnemy = {
                 id: enemy.id,
@@ -88,6 +104,7 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
                 hit_points: (enemy.hit_points - currentUser.attack),
                 image: enemy.image
             }
+            setGameText(`You did ${currentUser.attack} damage!`)
         }
 
         dispatch(updateEnemy(damagedEnemy))
@@ -98,8 +115,8 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
         <div>
             <div className='enemies'>
                 {
-                        currentEnemies.map((enemy, i) => {
-                              return !(enemy.hit_points <= 0) ?  (  
+                       currentEnemies.map((enemy, i) => {
+                              return (  
                                 <div key={enemy.name + i} className='enemy'> 
                                     <br/>
                                     <h4>{enemy.enemy_type}</h4>
@@ -116,7 +133,7 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
                                     </div>
                                     <br/>
                                 </div>               
-                            ) : null  
+                            )
                         })
                 }
             </div>
@@ -125,6 +142,7 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
                 <button onClick={() => playerBeforeAttack()}>Attack</button>
                 <button>Speak</button>
             </div>
+
             
         </div>
 

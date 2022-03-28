@@ -58,13 +58,20 @@ const Room = ({ next_room_id, currentUser }) => {
 
     return room.name && battle.id && enemies ? (
         <div>
-            <h1>The {room.name} Room</h1>
-            <DungeonBattle 
-            currentRoom={room} 
-            currentBattle={battle} 
-            currentEnemies={enemies}
-            currentUser={currentUser}
-            />
+            <div>
+                <h1>The {room.name} Room</h1>
+                <DungeonBattle 
+                currentRoom={room} 
+                currentBattle={battle} 
+                currentEnemies={enemies}
+                currentUser={currentUser}
+                />
+            </div>
+            <div>
+                {
+                    enemies.length === 0 ? <button>Continue</button> : null
+                }
+            </div>
         </div>
         
     ) : null
