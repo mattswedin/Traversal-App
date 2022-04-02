@@ -10,5 +10,5 @@ export const updateEnemy = (enemy) => (
 )
 
 export const destroyEnemy = enemyId => (
-    axios.destroy(`/api/enemies/${enemyId}`)
+    axios.delete(`/api/enemies/${enemyId}`)
 )

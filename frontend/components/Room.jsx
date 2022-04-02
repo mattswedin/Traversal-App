@@ -45,16 +45,26 @@ const Room = ({ next_room_id, currentUser }) => {
             })
                 
         }
-    }, [room])
+    }, [room.enemies, showRoom])
 
     useEffect(() => {
         if (currentUser.current_room_id) {
             dispatch(showRoom(currentUser.current_room_id));
             dispatch(showBattle(currentUser.id))
         }
-    }, [currentUser.current_room_id])
+    }, [currentUser.current_room_id, updateUser, traverse])
 
+    const traverse = () => {
 
+        const user = {
+            id: currentUser.id,
+            current_room_id: room.next_room_id
+        }
+
+        dispatch(updateUser(user))
+        dispatch(showRoom(currentUser.current_room_id));
+
+    }
 
     return room.name && battle.id && enemies ? (
         <div>
@@ -66,11 +76,6 @@ const Room = ({ next_room_id, currentUser }) => {
                 currentEnemies={enemies}
                 currentUser={currentUser}
                 />
-            </div>
-            <div>
-                {
-                    enemies.length === 0 ? <button>Continue</button> : null
-                }
             </div>
         </div>
         

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { updateBattle } from '../actions/battle_actions'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { updateEnemy } from '../actions/enemy_actions'
+import { updateEnemy, destroyEnemy } from '../actions/enemy_actions'
 import { updateRoom } from '../actions/room_actions'
 import Room from './Room'
 
@@ -88,14 +88,17 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
                 setGameText(`You destroyed ${enemy.name}!`)
                 const newRoom = {
                     id: currentRoom.id,
-                    enemies: currentRoom.enemies = currentRoom.enemies.filter(enemy => {
+                    enemies: currentRoom.enemies.filter(enemy => {
                         if (!(enemy.hit_points <= 0)){
                             return enemy
                         }
                     })
                 }
-                updateRoom(newRoom)
-                // destroyEnemy()
+
+                dispatch(updateRoom(newRoom))
+                dispatch(updateEnemy(damagedEnemy))
+                dispatch(destroyEnemy(enemy.id))
+                
             }, 300);
         } else {
             damagedEnemy = {
@@ -105,9 +108,10 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
                 image: enemy.image
             }
             setGameText(`You did ${currentUser.attack} damage!`)
+            dispatch(updateEnemy(damagedEnemy))
         }
 
-        dispatch(updateEnemy(damagedEnemy))
+        
     
     }
 
@@ -116,7 +120,7 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
             <div className='enemies'>
                 {
                        currentEnemies.map((enemy, i) => {
-                              return (  
+                              return enemy.hit_points > 0 ? (  
                                 <div key={enemy.name + i} className='enemy'> 
                                     <br/>
                                     <h4>{enemy.enemy_type}</h4>
@@ -133,7 +137,7 @@ const DungeonBattle = ({currentRoom, currentUser, currentBattle, currentEnemies}
                                     </div>
                                     <br/>
                                 </div>               
-                            )
+                            ) : null
                         })
                 }
             </div>

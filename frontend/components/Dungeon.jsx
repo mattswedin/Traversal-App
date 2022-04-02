@@ -17,16 +17,11 @@ const Dungeon = () => {
 
     useEffect(() => {
         dispatch(showDungeon(id.dungeonId))
-        // dispatch(showBattle(currentUser.id))
     }, [])
 
     const dungeon = useSelector(state => {
         return state.entities.dungeon
     })
-
-    // const battle = useSelector(state => {
-    //     return state.entities.battle
-    // })
 
     return dungeon.name ? (
         <div>
